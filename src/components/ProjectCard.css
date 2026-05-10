@@ -1,0 +1,78 @@
+.project-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1.75rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--color-highlight);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.card-status {
+  font-size: 0.68rem;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.card-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.stack-tag {
+  font-size: 0.68rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 0.2rem 0.45rem;
+  letter-spacing: 0.04em;
+}
+
+.card-footer {
+  display: flex;
+}
+
+.card-link {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  transition: color 0.2s ease;
+}
+
+.card-link:hover {
+  color: var(--color-highlight);
+}
+
+.card-link-muted {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
