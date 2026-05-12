@@ -14,7 +14,7 @@ const projects = [
   {
     name: 'API Dashboard Template',
     description:
-      'A reusable dashboard for custom API platform integrations. Reduces UI overhead for ecommerce and CRM function work across BigCommerce, NetSuite, HubSpot, and Zoho.',
+      'A reusable dashboard for custom API platform integrations. Reduces UI overhead for ecommerce and CRM functions work across platforms I work with, BigCommerce, NetSuite, HubSpot, and Zoho.',
     stack: ['React', 'Netlify', 'BigCommerce', 'NetSuite', 'HubSpot', 'Zoho'],
     link: null,
     linkLabel: 'GitHub coming soon',
@@ -23,7 +23,7 @@ const projects = [
   {
     name: 'Tribute Bands Locator',
     description:
-      'Find tribute band shows near you, filterable by original artist. Because someone had to build it.',
+      "Find tribute band shows near you, filterable by original artist. AI can't take away live music!",
     stack: ['React'],
     link: null,
     linkLabel: 'In progress',
@@ -32,7 +32,7 @@ const projects = [
   {
     name: 'Freelance Client Work',
     description:
-      'Website builds and platform integrations for small businesses and nonprofits. Currently pending client credentials and Stripe setup. Real world dev involves a lot of waiting on clients.',
+      'Web applications and platform integrations for small businesses. Ecommerce, serverless functions, API work, custom functionality. Client work is not publicly linkable.',
     stack: ['Varies'],
     link: null,
     linkLabel: null,
