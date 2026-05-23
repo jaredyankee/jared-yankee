@@ -137,3 +137,5 @@ dist
 
 .claude*
 CLAUDE.md
+# Local Netlify folder
+.netlify
