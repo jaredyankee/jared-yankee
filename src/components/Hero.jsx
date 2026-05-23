@@ -10,7 +10,7 @@ function Hero() {
       </div>
       <p className="hero-title">Software Developer</p>
       <p className="hero-tagline">
-        I build platform migrations, ecommerce APIs, and serverless infrastructure.
+        I build integrations nobody wants to touch: API pipelines, webhook automation, and data-syncs between any platforms with API documentation
       </p>
       <div className="hero-links">
         <a
