@@ -6,7 +6,7 @@ const projects = [
     name: 'Seyona AI',
     description:
       'An AI-powered AEO/SEO platform. Scrapes page data to build a living brand profile, generates per-page trend plans, and produces FAQ schema blocks that render directly on client sites. Aligns generated content with existing brand voice automatically.',
-    stack: ['Vite', 'React', 'Netlify Serverless', 'Stack Auth', 'Perplexity API'],
+    stack: ['Vite', 'React', 'Netlify Serverless', 'Stack Auth', 'Perplexity API', 'Gemini API', 'Anthropic API'],
     link: 'https://seyona.ai',
     linkLabel: 'seyona.ai',
     status: 'In development',
@@ -14,17 +14,17 @@ const projects = [
   {
     name: 'API Dashboard Template',
     description:
-      'A reusable dashboard for custom API platform integrations. Reduces UI overhead for ecommerce and CRM functions work across platforms I work with, BigCommerce, NetSuite, HubSpot, and Zoho.',
+      'A reusable dashboard for custom API platform integrations. Reduces UI overhead for ecommerce and CRM work across BigCommerce, NetSuite, HubSpot, and Zoho.',
     stack: ['React', 'Netlify', 'BigCommerce', 'NetSuite', 'HubSpot', 'Zoho'],
     link: null,
     linkLabel: 'GitHub coming soon',
     status: 'Open source',
   },
   {
-    name: 'Tribute Bands Locator',
+    name: 'Remedy',
     description:
-      "Find tribute band shows near you, filterable by original artist. AI can't take away live music!",
-    stack: ['React'],
+      "Medical companion using AI to track progress of conditions. Uses dynamic form generation to collect, analyze, and store information related to user's conditions",
+    stack: ['React Native', 'SQLite', 'Expo Go', 'OpenAI API'],
     link: null,
     linkLabel: 'In progress',
     status: 'In progress',
