@@ -1,7 +1,13 @@
 .work {
   padding: 4rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  animation: fadeUp 0.6s ease 0.2s both;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  animation: fadeUp 0.7s ease-out 0.2s both;
+}
+
+@media (max-width: 600px) {
+  .work {
+    grid-template-columns: 1fr;
+  }
 }
