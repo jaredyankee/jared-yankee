@@ -5,7 +5,8 @@
 
 .contact-email {
   display: block;
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
   font-size: 1.5rem;
   color: var(--color-text);
   margin-bottom: 1.5rem;
