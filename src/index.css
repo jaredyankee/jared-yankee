@@ -6,11 +6,17 @@
 
 body {
   background-color: var(--color-bg);
+  background-image: radial-gradient(ellipse at 15% 0%, rgba(40, 112, 96, 0.1) 0%, transparent 50%);
   color: var(--color-text);
   font-family: 'DM Sans', sans-serif;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] body {
+  background-image: radial-gradient(ellipse at 15% 0%, rgba(15, 70, 65, 0.2) 0%, transparent 50%);
 }
 
 a {

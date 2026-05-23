@@ -1,14 +1,47 @@
 :root {
-  --color-bg:          #0d1f1a;
-  --color-bg-subtle:   #112920;
-  --color-surface:     #16342b;
-  --color-border:      #1f4a3a;
+  --color-bg:          #f5efea;       /* warm parchment */
+  --color-bg-subtle:   #ede5de;
+  --color-surface:     #ffffff;
+  --color-border:      #c8b4aa;
 
-  --color-primary:     #4a9e7f;
-  --color-accent:      #5b8fa8;
-  --color-highlight:   #7ec8a0;
+  --color-primary:     #c41830;       /* sharp red */
+  --color-accent:      #1e5c4e;       /* dark forest green */
+  --color-highlight:   #e01428;       /* vivid red hover */
+  --color-rose:        #9a4e5e;
 
-  --color-text:        #d4e8df;
-  --color-text-muted:  #7aab94;
-  --color-text-faint:  #3d7a62;
+  --color-text:        #1a2018;
+  --color-text-muted:  #3c5048;
+  --color-text-faint:  #8aaa9a;
+
+  --color-card-border:       rgba(196, 24, 48, 0.25);
+  --color-card-border-hover: rgba(196, 24, 48, 0.6);
+  --color-card-glow:         rgba(196, 24, 48, 0.12);
+  --color-pill-border:       rgba(196, 24, 48, 0.35);
+  --color-pill-bg:           rgba(196, 24, 48, 0.07);
+  --color-divider-line:      rgba(196, 24, 48, 0.2);
+  --color-divider-mark:      rgba(196, 24, 48, 0.4);
+}
+
+[data-theme="dark"] {
+  --color-bg:          #0a1a18;       /* deep dark vine */
+  --color-bg-subtle:   #0f2220;
+  --color-surface:     #142e2a;
+  --color-border:      #224540;
+
+  --color-primary:     #e82040;       /* sharp rose red */
+  --color-accent:      #4a9080;       /* dark teal-green */
+  --color-highlight:   #ff2040;       /* vivid red hover */
+  --color-rose:        #e09aaa;
+
+  --color-text:        #eef6f4;
+  --color-text-muted:  #7aa8a0;
+  --color-text-faint:  #4a7870;
+
+  --color-card-border:       rgba(232, 32, 64, 0.35);
+  --color-card-border-hover: rgba(232, 32, 64, 0.75);
+  --color-card-glow:         rgba(232, 32, 64, 0.2);
+  --color-pill-border:       rgba(232, 32, 64, 0.45);
+  --color-pill-bg:           rgba(232, 32, 64, 0.1);
+  --color-divider-line:      rgba(232, 32, 64, 0.22);
+  --color-divider-mark:      rgba(232, 32, 64, 0.45);
 }
