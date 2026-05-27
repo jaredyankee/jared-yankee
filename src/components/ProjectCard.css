@@ -1,3 +1,87 @@
+/* Featured (Seyona spotlight) — styled with Seyona's own theme */
+
+.project-card--featured {
+  background: #fdf8f9;
+  border: 1px solid #e0cdd4;
+  border-left: 3px solid #c8507e;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 12px rgba(200, 80, 126, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card--featured:hover {
+  border-color: #c8507e;
+  box-shadow: 0 6px 24px rgba(200, 80, 126, 0.14);
+  transform: translateY(-2px);
+}
+
+.featured-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.featured-eyebrow {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #c8507e;
+}
+
+.featured-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1118;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.project-card--featured .card-description {
+  color: #6b5560;
+  margin-bottom: 1.25rem;
+}
+
+.project-card--featured .card-stack {
+  margin-bottom: 1.25rem;
+}
+
+.featured-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c8507e;
+  transition: color 0.2s ease;
+}
+
+.featured-link:hover {
+  color: #a03060;
+}
+
+.project-card--featured .card-status {
+  color: #b09aa4;
+}
+
+.project-card--featured .stack-tag {
+  color: #c8507e;
+  border-color: rgba(200, 80, 126, 0.3);
+  background: rgba(200, 80, 126, 0.07);
+}
+
+@media (max-width: 600px) {
+  .featured-name {
+    font-size: 1.6rem;
+  }
+}
+
+/* Standard cards */
+
 .project-card {
   background: var(--color-surface);
   border: 1px solid var(--color-card-border);

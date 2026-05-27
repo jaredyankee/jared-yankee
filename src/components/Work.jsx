@@ -10,6 +10,7 @@ const projects = [
     link: 'https://seyona.ai',
     linkLabel: 'seyona.ai',
     status: 'In development',
+    featured: true,
   },
   {
     name: 'API Dashboard Template',
@@ -45,7 +46,7 @@ function Work() {
   return (
     <section className="work">
       {projects.map((project) => (
-        <ProjectCard key={project.name} {...project} />
+        <ProjectCard key={project.name} {...project} featured={project.featured ?? false} />
       ))}
     </section>
   )
