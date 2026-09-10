@@ -20,28 +20,60 @@
   --color-pill-bg:           rgba(196, 24, 48, 0.07);
   --color-divider-line:      rgba(196, 24, 48, 0.2);
   --color-divider-mark:      rgba(196, 24, 48, 0.4);
+
+  /* Featured card (Seyona spotlight). Carries its own pink accent so the card
+     reads as a distinct brand, separate from the site's red. Every value here
+     needs a dark counterpart below, or the card breaks in dark mode. */
+  --color-featured-bg:           #fdf8f9;
+  --color-featured-border:       #e0cdd4;
+  --color-featured-accent:       #c8507e;
+  --color-featured-accent-hover: #a03060;
+  --color-featured-heading:      #1a1118;
+  --color-featured-body:         #6b5560;
+  --color-featured-status:       #b09aa4;
+  --color-featured-shadow:       rgba(200, 80, 126, 0.08);
+  --color-featured-shadow-hover: rgba(200, 80, 126, 0.14);
+  --color-featured-pill-border:  rgba(200, 80, 126, 0.3);
+  --color-featured-pill-bg:      rgba(200, 80, 126, 0.07);
 }
 
+/* Dark is a neutral GitHub-style palette, not a dark version of the warm light
+   theme. Red is the single accent here. The forest green is deliberately gone,
+   red on green read as Christmas. */
 [data-theme="dark"] {
-  --color-bg:          #0a1a18;       /* deep dark vine */
-  --color-bg-subtle:   #0f2220;
-  --color-surface:     #142e2a;
-  --color-border:      #224540;
+  --color-bg:          #0d1117;       /* github canvas */
+  --color-bg-subtle:   #161b22;
+  --color-surface:     #161b22;       /* cards sit one step above the canvas */
+  --color-border:      #30363d;
 
-  --color-primary:     #e82040;       /* sharp rose red */
-  --color-accent:      #4a9080;       /* dark teal-green */
-  --color-highlight:   #ff2040;       /* vivid red hover */
-  --color-rose:        #e09aaa;
+  --color-primary:     #ff7b72;       /* softened red, legible on near-black */
+  --color-accent:      #8b949e;       /* neutral, was forest green */
+  --color-highlight:   #ffa198;       /* lighter red for hover */
+  --color-rose:        #8b949e;       /* hero eyebrow, muted rather than pink */
 
-  --color-text:        #eef6f4;
-  --color-text-muted:  #7aa8a0;
-  --color-text-faint:  #4a7870;
+  --color-text:        #e6edf3;
+  --color-text-muted:  #8b949e;
+  --color-text-faint:  #6e7681;
 
-  --color-card-border:       rgba(232, 32, 64, 0.35);
-  --color-card-border-hover: rgba(232, 32, 64, 0.75);
-  --color-card-glow:         rgba(232, 32, 64, 0.2);
-  --color-pill-border:       rgba(232, 32, 64, 0.45);
-  --color-pill-bg:           rgba(232, 32, 64, 0.1);
-  --color-divider-line:      rgba(232, 32, 64, 0.22);
-  --color-divider-mark:      rgba(232, 32, 64, 0.45);
+  --color-card-border:       #30363d;
+  --color-card-border-hover: #484f58;
+  --color-card-glow:         rgba(0, 0, 0, 0.5);
+  --color-pill-border:       rgba(255, 123, 114, 0.3);
+  --color-pill-bg:           rgba(255, 123, 114, 0.08);
+  --color-divider-line:      rgba(139, 148, 158, 0.18);
+  --color-divider-mark:      rgba(139, 148, 158, 0.4);
+
+  /* Featured card in dark: elevated neutral surface, near-white heading, pink
+     kept only as the accent so Seyona still reads as its own thing. */
+  --color-featured-bg:           #1c2128;
+  --color-featured-border:       #30363d;
+  --color-featured-accent:       #f778ba;
+  --color-featured-accent-hover: #ff9bd0;
+  --color-featured-heading:      #e6edf3;
+  --color-featured-body:         #8b949e;
+  --color-featured-status:       #6e7681;
+  --color-featured-shadow:       rgba(0, 0, 0, 0.4);
+  --color-featured-shadow-hover: rgba(0, 0, 0, 0.55);
+  --color-featured-pill-border:  rgba(247, 120, 186, 0.35);
+  --color-featured-pill-bg:      rgba(247, 120, 186, 0.1);
 }
