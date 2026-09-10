@@ -15,8 +15,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Dark mode is a flat near-black canvas, the way GitHub's is. The light theme
+   keeps its green wash above, dark drops it entirely. */
 [data-theme="dark"] body {
-  background-image: radial-gradient(ellipse at 15% 0%, rgba(15, 70, 65, 0.2) 0%, transparent 50%);
+  background-image: none;
 }
 
 a {
