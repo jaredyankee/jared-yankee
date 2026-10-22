@@ -3,8 +3,7 @@ import './Hero.css'
 function Hero() {
   return (
     <section className="hero">
-      {/* Placeholder until there is a real photo in src/assets */}
-      <div className="hero-avatar" aria-hidden="true">JY</div>
+      <img className="hero-avatar" src="/assets/profile/headshot-avatar.jpg" alt="Jared Yankee" width="96" height="96" />
       <h1 className="hero-name">Jared Yankee</h1>
       <p className="hero-title">Software developer</p>
       <p className="hero-tagline">

@@ -1,6 +1,10 @@
 import ProjectCard from './ProjectCard'
 import './Work.css'
 
+// Placeholder copy until the real write-up for each agent exists
+const LOREM =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+
 const projects = [
   {
     name: 'Seyona AI',
@@ -9,7 +13,12 @@ const projects = [
     stack: ['Vite', 'React', 'Netlify Serverless', 'Stack Auth', 'Perplexity API', 'Gemini API', 'Anthropic API'],
     link: 'https://seyona.ai',
     linkLabel: 'seyona.ai',
-    status: 'In development',
+    shots: [
+      { src: '/assets/seyona/seyona-dashboard-brand-analysis.png', title: 'Brand analysis', blurb: LOREM },
+      { src: '/assets/seyona/seyona-dashboard-page-trends.png', title: 'Page trends', blurb: LOREM },
+      { src: '/assets/seyona/seyona-dashboard-live-content.png', title: 'Live content', blurb: LOREM },
+      { src: '/assets/seyona/seyona-live-faqs.png', title: 'FAQs on a live site', blurb: LOREM },
+    ],
   },
   {
     name: 'API Dashboard Template',
@@ -17,8 +26,6 @@ const projects = [
       'A reusable dashboard for custom API platform integrations. Reduces UI overhead for ecommerce and CRM work across BigCommerce, NetSuite, HubSpot, and Zoho.',
     stack: ['React', 'Netlify', 'BigCommerce', 'NetSuite', 'HubSpot', 'Zoho'],
     link: null,
-    linkLabel: 'GitHub coming soon',
-    status: 'Open source',
   },
   {
     name: 'Remedy',
@@ -26,8 +33,6 @@ const projects = [
       "Medical companion using AI to track progress of conditions. Uses dynamic form generation to collect, analyze, and store information related to user's conditions",
     stack: ['React Native', 'SQLite', 'Expo Go', 'OpenAI API'],
     link: null,
-    linkLabel: 'In progress',
-    status: 'In progress',
   },
   {
     name: 'Freelance Client Work',
@@ -35,8 +40,6 @@ const projects = [
       'Web applications and platform integrations for small businesses. Ecommerce, serverless functions, API work, custom functionality. Client work is not publicly linkable.',
     stack: ['Varies'],
     link: null,
-    linkLabel: null,
-    status: 'Client work',
   },
 ]
 
