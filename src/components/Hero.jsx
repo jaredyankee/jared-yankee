@@ -3,11 +3,9 @@ import './Hero.css'
 function Hero() {
   return (
     <section className="hero">
-      <div className="hero-name-wrap">
-        <h1 className="hero-name">
-          Jared Yankee
-        </h1>
-      </div>
+      {/* Placeholder until there is a real photo in src/assets */}
+      <div className="hero-avatar" aria-hidden="true">JY</div>
+      <h1 className="hero-name">Jared Yankee</h1>
       <p className="hero-title">Software developer</p>
       <p className="hero-tagline">
         I build integrations nobody wants to touch: API pipelines, webhook automation, and data-syncs between any platforms with API documentation
@@ -39,6 +37,7 @@ function Hero() {
           </svg>
         </a>
       </div>
+      <a href="mailto:hello@jaredyankee.com" className="hero-email">hello@jaredyankee.com</a>
     </section>
   )
 }

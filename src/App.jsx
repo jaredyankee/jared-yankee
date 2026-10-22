@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import Hero from './components/Hero'
 import Work from './components/Work'
 import About from './components/About'
-import Contact from './components/Contact'
 import './App.css'
 
 function App() {
@@ -42,15 +41,15 @@ function App() {
           </svg>
         )}
       </button>
-      <main className="main">
-        <Hero />
-        <div className="divider"><span className="divider-mark" aria-hidden="true">✦</span></div>
-        <Work />
-        <div className="divider"><span className="divider-mark" aria-hidden="true">✦</span></div>
-        <About />
-        <div className="divider"><span className="divider-mark" aria-hidden="true">✦</span></div>
-        <Contact />
-      </main>
+      <div className="layout">
+        <aside className="sidebar">
+          <Hero />
+          <About />
+        </aside>
+        <main className="content">
+          <Work />
+        </main>
+      </div>
     </>
   )
 }

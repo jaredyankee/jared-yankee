@@ -1,27 +1,50 @@
-.main {
+/* GitHub-profile style: the sidebar (who I am) stays put while the
+   projects scroll past on the right. Below 960px it all stacks. */
+.layout {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 3rem;
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) 1fr;
+  gap: 4rem;
 }
 
-.divider {
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 3rem 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 1.5rem;
-  padding: 0.25rem 0;
 }
 
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--color-divider-line);
+.content {
+  padding: 3rem 0 6rem;
 }
 
-.divider-mark {
-  font-size: 0.55rem;
-  color: var(--color-divider-mark);
+/* Proximity, not mandatory: it only settles a card into place when you stop
+   scrolling near one, it never yanks the page around. */
+@media (min-width: 961px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 1.25rem;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding: 5rem 0 1rem;
+  }
 }
 
 .theme-toggle {

@@ -1,16 +1,19 @@
 .work {
-  padding: 4rem 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.work .project-card--featured {
-  grid-column: 1 / -1;
+/* Tall cards so each project gets the screen to itself; they snap to the
+   top of the viewport on desktop (see html scroll-snap in App.css). */
+.work .project-card {
+  min-height: 70vh;
+  scroll-snap-align: start;
+  scroll-margin-top: 3rem;
 }
 
-@media (max-width: 600px) {
-  .work {
-    grid-template-columns: 1fr;
+@media (max-width: 960px) {
+  .work .project-card {
+    min-height: 0;
   }
 }
