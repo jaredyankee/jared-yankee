@@ -1,8 +1,8 @@
 import './ProjectCard.css'
 
-function ProjectCard({ name, description, stack, link, linkLabel, shots = [] }) {
+function ProjectCard({ name, description, stack, link, linkLabel, theme, shots = [] }) {
   return (
-    <article className="project-card">
+    <article className={theme ? `project-card project-card--${theme}` : 'project-card'}>
       <h2 className="card-name">{name}</h2>
       <p className="card-description">{description}</p>
       <p className="card-stack">{stack.join(', ')}</p>

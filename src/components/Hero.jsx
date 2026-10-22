@@ -3,7 +3,7 @@ import './Hero.css'
 function Hero() {
   return (
     <section className="hero">
-      <img className="hero-avatar" src="/assets/profile/headshot-avatar.jpg" alt="Jared Yankee" width="96" height="96" />
+      <img className="hero-avatar" src="/assets/profile/headshot-avatar.jpg" alt="Jared Yankee" width="168" height="168" />
       <h1 className="hero-name">Jared Yankee</h1>
       <p className="hero-title">Software developer</p>
       <p className="hero-tagline">

@@ -84,3 +84,87 @@
     padding: 1.25rem;
   }
 }
+
+/* Branded cards take on the look of the app they show. The palettes come from
+   each app's own theme and stay the same in light and dark mode, the card is
+   a window into that app rather than part of this site's palette. */
+
+.project-card--seyona {
+  --blossom:        #d4638a;
+  --blossom-dark:   #b84d72;
+  --ink:            #1a1118;
+  --ink-muted:      #6b5560;
+  --border-strong:  #e0cdd4;
+
+  font-family: 'Nunito', sans-serif;
+  background: #fdf8f9;
+  border-color: var(--border-strong);
+  border-radius: 12px;
+}
+
+.project-card--seyona:hover {
+  border-color: var(--blossom);
+}
+
+.project-card--seyona .card-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--blossom);
+}
+
+.project-card--seyona .card-description,
+.project-card--seyona .card-stack,
+.project-card--seyona .card-shot-blurb {
+  color: var(--ink-muted);
+}
+
+.project-card--seyona .card-shot-title {
+  color: var(--ink);
+}
+
+.project-card--seyona .card-link {
+  color: var(--blossom);
+}
+
+.project-card--seyona .card-link:hover {
+  color: var(--blossom-dark);
+}
+
+.project-card--seyona .card-shot img {
+  border-color: var(--border-strong);
+  border-radius: 8px;
+}
+
+/* Remedy is an Expo app, so it renders in the platform font: thin white type
+   on a lot of iOS blue. */
+.project-card--remedy {
+  --primary: #007aff;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--primary);
+  border-color: var(--primary);
+  border-radius: 16px;
+  color: #ffffff;
+}
+
+.project-card--remedy:hover {
+  border-color: #ffffff;
+}
+
+.project-card--remedy .card-name {
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.project-card--remedy .card-description {
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.project-card--remedy .card-stack {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}
