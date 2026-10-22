@@ -6,7 +6,7 @@
   padding: 0 3rem;
   display: grid;
   grid-template-columns: minmax(300px, 380px) 1fr;
-  gap: 4rem;
+  column-gap: 7rem;
 }
 
 .sidebar {
@@ -14,10 +14,16 @@
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  scrollbar-width: none;
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+/* Still scrolls on short screens, just without a visible bar */
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .content {

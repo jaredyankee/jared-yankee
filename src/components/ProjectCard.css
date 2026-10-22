@@ -48,12 +48,8 @@
   color: var(--color-highlight);
 }
 
-/* Screenshots each get their own snap point so a long project can be read
-   one image at a time. */
 .card-shot {
   margin-top: 2.5rem;
-  scroll-snap-align: start;
-  scroll-margin-top: 3rem;
 }
 
 .card-shot img {
