@@ -5,10 +5,10 @@ function Hero() {
     <section className="hero">
       <div className="hero-name-wrap">
         <h1 className="hero-name">
-          Jared Yankee<span className="cursor" aria-hidden="true" />
+          Jared Yankee
         </h1>
       </div>
-      <p className="hero-title">Software Developer</p>
+      <p className="hero-title">Software developer</p>
       <p className="hero-tagline">
         I build integrations nobody wants to touch: API pipelines, webhook automation, and data-syncs between any platforms with API documentation
       </p>
