@@ -1,108 +1,14 @@
-/* Featured (Seyona spotlight). Colors come from the --color-featured-* tokens
-   in theme.css so the card follows light/dark like everything else.
-
-   The selector is doubled up on purpose. The base .project-card rules live
-   further down this file, and at equal specificity the later rule wins, so a
-   plain .project-card--featured lost its background to .project-card. That is
-   what made this card render on the dark surface with a near-black heading. */
-
-.project-card.project-card--featured {
-  background: var(--color-featured-bg);
-  border: 1px solid var(--color-featured-border);
-  border-left: 3px solid var(--color-featured-accent);
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 2px 12px var(--color-featured-shadow);
-  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-}
-
-.project-card.project-card--featured:hover {
-  border-color: var(--color-featured-accent);
-  box-shadow: 0 6px 24px var(--color-featured-shadow-hover);
-  transform: translateY(-2px);
-}
-
-.featured-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.6rem;
-}
-
-.featured-eyebrow {
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--color-featured-accent);
-}
-
-.featured-name {
-  font-family: 'Nunito', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-featured-heading);
-  line-height: 1.15;
-  margin-bottom: 0.75rem;
-}
-
-.project-card--featured .card-description {
-  color: var(--color-featured-body);
-  margin-bottom: 1.25rem;
-}
-
-.project-card--featured .card-stack {
-  margin-bottom: 1.25rem;
-}
-
-.featured-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-featured-accent);
-  transition: color 0.2s ease;
-}
-
-.featured-link:hover {
-  color: var(--color-featured-accent-hover);
-}
-
-.project-card--featured .card-status {
-  color: var(--color-featured-status);
-}
-
-.project-card--featured .stack-tag {
-  color: var(--color-featured-accent);
-  border-color: var(--color-featured-pill-border);
-  background: var(--color-featured-pill-bg);
-}
-
-@media (max-width: 600px) {
-  .featured-name {
-    font-size: 1.6rem;
-  }
-}
-
-/* Standard cards */
-
 .project-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-card-border);
-  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
   padding: 2rem;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   display: flex;
   flex-direction: column;
+  transition: border-color 0.2s ease;
 }
 
 .project-card:hover {
-  border-color: var(--color-card-border-hover);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 1px 4px var(--color-card-glow);
-  transform: translateY(-2px);
+  border-color: var(--color-text-muted);
 }
 
 .card-header {
@@ -114,53 +20,40 @@
 }
 
 .card-name {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   font-weight: 600;
   color: var(--color-text);
 }
 
 .card-status {
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   color: var(--color-text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
 .card-description {
   font-size: 0.975rem;
   color: var(--color-text-muted);
   line-height: 1.75;
-  margin-bottom: 1.25rem;
-  flex: 1;
+  margin-bottom: 1rem;
 }
 
 .card-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+  margin-bottom: 1rem;
 }
 
-.stack-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--color-primary);
-  border: 1px solid var(--color-pill-border);
-  border-radius: 99px;
-  padding: 0.25rem 0.8rem;
-  background: var(--color-pill-bg);
-}
-
-.card-footer {
-  display: flex;
+.card-link,
+.card-link-muted {
+  font-size: 0.9rem;
+  align-self: flex-start;
 }
 
 .card-link {
-  font-size: 0.8rem;
   color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color 0.2s ease;
 }
 
@@ -169,6 +62,5 @@
 }
 
 .card-link-muted {
-  font-size: 0.8rem;
   color: var(--color-text-faint);
 }

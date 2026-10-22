@@ -4,16 +4,9 @@
   gap: 2rem;
 }
 
-/* Tall cards so each project gets the screen to itself; they snap to the
-   top of the viewport on desktop (see html scroll-snap in App.css). */
+/* Cards snap to the top of the viewport on desktop (see html scroll-snap in
+   App.css). Height comes from content; screenshots will give them size. */
 .work .project-card {
-  min-height: 70vh;
   scroll-snap-align: start;
   scroll-margin-top: 3rem;
-}
-
-@media (max-width: 960px) {
-  .work .project-card {
-    min-height: 0;
-  }
 }
