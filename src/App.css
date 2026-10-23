@@ -43,14 +43,14 @@
   height: 100vh;
 }
 
-/* The line itself: 2px at its middle, clipped to a long thin diamond so it
+/* The line itself: 1.5px at its middle, clipped to a long thin diamond so it
    narrows to a point at each end, and faded out toward the ends. */
 .rail-line {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 2px;
+  width: 1.5px;
   transform: translateX(-50%);
   background: var(--rail-color);
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
