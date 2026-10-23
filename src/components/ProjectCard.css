@@ -1,6 +1,16 @@
+/* Cards keep their look whichever site theme is on; dark mode only warms and
+   dims their backgrounds a touch so they don't glare. Plain cards use the
+   light site palette. */
 .project-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  --card-surface:    #ffffff;
+  --card-border:     #c8b4aa;
+  --card-text:       #1a2018;
+  --card-text-muted: #3c5048;
+  --card-link:       #c41830;
+  --card-link-hover: #e01428;
+
+  background: var(--card-surface);
+  border: 1px solid var(--card-border);
   border-radius: 2px;
   padding: 2rem;
   display: flex;
@@ -8,27 +18,31 @@
   transition: border-color 0.2s ease;
 }
 
+[data-theme="dark"] .project-card {
+  --card-surface: #f3eee8;
+}
+
 .project-card:hover {
-  border-color: var(--color-text-muted);
+  border-color: var(--card-text-muted);
 }
 
 .card-name {
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--card-text);
   margin-bottom: 0.75rem;
 }
 
 .card-description {
   font-size: 0.975rem;
-  color: var(--color-text-muted);
+  color: var(--card-text-muted);
   line-height: 1.75;
   margin-bottom: 1rem;
 }
 
 .card-stack {
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  color: var(--card-text-muted);
   margin-bottom: 1rem;
 }
 
@@ -38,14 +52,66 @@
 }
 
 .card-link {
-  color: var(--color-primary);
+  color: var(--card-link);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.2s ease;
 }
 
 .card-link:hover {
-  color: var(--color-highlight);
+  color: var(--card-link-hover);
+}
+
+.card-toggle {
+  align-self: flex-start;
+  margin-top: 1.25rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--card-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.card-toggle:hover {
+  color: var(--card-text);
+}
+
+.card-toggle-icon {
+  font-size: 0.75em;
+  transition: transform 0.25s ease;
+}
+
+.card-toggle[aria-expanded="true"] .card-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Animates to the content's natural height: grid rows can transition from
+   0fr to 1fr where height: auto can't. */
+.card-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.card-details[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.card-details-inner {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-details,
+  .card-toggle-icon {
+    transition: none;
+  }
 }
 
 .card-shot {
@@ -56,7 +122,7 @@
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--card-border);
 }
 
 .card-shot figcaption {
@@ -66,13 +132,13 @@
 .card-shot-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--card-text);
   margin-bottom: 0.35rem;
 }
 
 .card-shot-blurb {
   font-size: 0.925rem;
-  color: var(--color-text-muted);
+  color: var(--card-text-muted);
   line-height: 1.7;
 }
 
@@ -83,8 +149,7 @@
 }
 
 /* Branded cards take on the look of the app they show, using each app's own
-   palette. Dark mode swaps in a dark take on the same palette so the card
-   doesn't glare off the page. */
+   palette. */
 
 .project-card--seyona {
   --card-bg:     #fdf8f9;
@@ -101,13 +166,9 @@
 }
 
 [data-theme="dark"] .project-card--seyona {
-  --card-bg:     #1e1519;
-  --card-border: #3d2a33;
-  --accent:      #e8a0b8;
-  --accent-hover:#fce8ef;
-  --ink:         #f5e9ee;
-  --ink-muted:   #bba5af;
+  --card-bg: #f5ecef;
 }
+
 
 .project-card--seyona:hover {
   border-color: var(--accent);
@@ -130,11 +191,13 @@
   color: var(--ink);
 }
 
-.project-card--seyona .card-link {
+.project-card--seyona .card-link,
+.project-card--seyona .card-toggle {
   color: var(--accent);
 }
 
-.project-card--seyona .card-link:hover {
+.project-card--seyona .card-link:hover,
+.project-card--seyona .card-toggle:hover {
   color: var(--accent-hover);
 }
 
@@ -144,8 +207,7 @@
 }
 
 /* Remedy is an Expo app, so it renders in the platform font: thin white type
-   on a lot of iOS blue. Dark mode uses a deeper blue so it isn't a floodlight
-   on the near-black page. */
+   on a lot of iOS blue, a deeper blue in dark mode. */
 .project-card--remedy {
   --card-bg: #007aff;
 
@@ -159,6 +221,7 @@
 [data-theme="dark"] .project-card--remedy {
   --card-bg: #0a4a9e;
 }
+
 
 .project-card--remedy:hover {
   border-color: #ffffff;
@@ -179,4 +242,102 @@
 .project-card--remedy .card-stack {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* CV Master: minimal and etched. Hairline borders, 5px radius, no shadows,
+   system sans, teal used sparingly. Always uses the app's dark palette, in
+   light mode too. */
+.project-card--cv-master {
+  --card-bg:  #1c1d21;
+  --border:   #2f3137;
+  --heading:  #f6f6f5;
+  --body:     #cbccd2;
+  --muted:    #91939b;
+  --accent:   #3fdcc7;
+  --accent-deep: #0b6f63;
+
+  position: relative;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--card-bg);
+  border-color: var(--border);
+  border-radius: 5px;
+}
+
+/* The border is the deep teal all the way round, the bright teal segment
+   travels over it. It stays put on hover, the segment is enough motion. */
+.project-card--cv-master,
+.project-card--cv-master:hover {
+  border-color: var(--accent-deep);
+}
+
+.project-card--cv-master .card-name {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.project-card--cv-master .card-description {
+  color: var(--body);
+}
+
+.project-card--cv-master .card-stack {
+  color: var(--muted);
+}
+
+.project-card--cv-master .card-link {
+  color: var(--accent);
+}
+
+.project-card--cv-master .card-toggle {
+  color: var(--muted);
+}
+
+.project-card--cv-master .card-toggle:hover {
+  color: var(--accent);
+}
+
+.project-card--cv-master .card-shot-title {
+  color: var(--heading);
+}
+
+.project-card--cv-master .card-shot-blurb {
+  color: var(--body);
+}
+
+.project-card--cv-master .card-shot img {
+  border-color: var(--border);
+  border-radius: 5px;
+}
+
+/* The loading effect: a teal dash a third of the perimeter long (pathLength
+   300, dash 100) that runs around the 1px border on a loop. */
+.card-trace {
+  position: absolute;
+  inset: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.card-trace rect {
+  x: 0.5px;
+  y: 0.5px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+  rx: 5px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1px;
+  stroke-dasharray: 100 200;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card-trace rect {
+    animation: card-trace 2s linear infinite;
+  }
+}
+
+@keyframes card-trace {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -300; }
 }
