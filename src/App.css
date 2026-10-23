@@ -1,8 +1,8 @@
 /* GitHub-profile style: the sidebar (who I am) stays put while the
    projects scroll past on the right. Below 960px it all stacks. */
 .layout {
-  max-width: 80rem;
-  margin: 0 auto;
+  max-width: 92rem;
+  margin: 1em auto;
   padding: 0 3rem;
   display: grid;
   grid-template-columns: minmax(300px, 380px) 1fr;
