@@ -5,12 +5,16 @@
   margin: 1em auto;
   padding: 0 3rem;
   display: grid;
-  grid-template-columns: minmax(300px, 380px) 1fr;
-  column-gap: 7rem;
+  grid-template-columns: minmax(300px, 380px) 1px 1fr;
+  column-gap: 3.5rem;
+  isolation: isolate;
 }
 
+/* z-index keeps the profile above the rail's panel; sticky elements paint in
+   their own layer, so DOM order alone would put the panel on top. */
 .sidebar {
   position: sticky;
+  z-index: 1;
   top: 0;
   height: 100vh;
   overflow-y: auto;
@@ -28,6 +32,42 @@
 
 .content {
   padding: 3rem 0 6rem;
+}
+
+/* The divider. Sticky so it always spans the viewport. Its ::before is the
+   themed panel behind the sidebar, reaching from the rail to the left edge of
+   the screen; it's transparent until a project is active. */
+.rail {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+/* The line itself: 1.5px at its middle, clipped to a long thin diamond so it
+   narrows to a point at each end, and faded out toward the ends. */
+.rail-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+  background: var(--rail-color);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+  transition: background-color 0.4s ease;
+}
+
+.rail::before {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  bottom: -2rem;
+  right: 0;
+  width: 100vw;
+  background: var(--panel-bg);
+  z-index: -1;
+  transition: background-color 0.4s ease;
 }
 
 /* Proximity, not mandatory: it only settles a card into place when you stop
@@ -48,6 +88,10 @@ html {
 
   .sidebar {
     display: contents;
+  }
+
+  .rail {
+    display: none;
   }
 
   .sidebar .hero {

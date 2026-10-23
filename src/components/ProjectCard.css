@@ -1,6 +1,7 @@
 /* Cards keep their look whichever site theme is on; dark mode only warms and
-   dims their backgrounds a touch so they don't glare. Plain cards use the
-   light site palette. */
+   dims their backgrounds a touch so they don't glare. That's dropped while a
+   project theme is active, since project themes ignore light/dark. Plain
+   cards use the light site palette. */
 .project-card {
   --card-surface:    #ffffff;
   --card-border:     #c8b4aa;
@@ -18,7 +19,7 @@
   transition: border-color 0.2s ease;
 }
 
-[data-theme="dark"] .project-card {
+[data-theme="dark"]:not([data-project]) .project-card {
   --card-surface: #f3eee8;
 }
 
@@ -26,11 +27,80 @@
   border-color: var(--card-text-muted);
 }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.card-logo {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
 .card-name {
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--card-text);
-  margin-bottom: 0.75rem;
+}
+
+/* Status tag: icon plus a sentence-case label, hairline border in the card's
+   own muted color so it fits whichever card it's on. */
+.card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  color: var(--card-text-muted);
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  border-radius: 4px;
+  cursor: help;
+}
+
+.card-status > span {
+  display: inline-flex;
+}
+
+/* Live: a green dot with a slow pulse, the "it's up" signal */
+.status-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .status-dot::after {
+    animation: status-pulse 2s ease-out infinite;
+  }
+}
+
+@keyframes status-pulse {
+  from { transform: scale(1); opacity: 0.6; }
+  to   { transform: scale(2.6); opacity: 0; }
 }
 
 .card-description {
@@ -165,7 +235,7 @@
   border-radius: 12px;
 }
 
-[data-theme="dark"] .project-card--seyona {
+[data-theme="dark"]:not([data-project]) .project-card--seyona {
   --card-bg: #f5ecef;
 }
 
@@ -218,7 +288,7 @@
   color: #ffffff;
 }
 
-[data-theme="dark"] .project-card--remedy {
+[data-theme="dark"]:not([data-project]) .project-card--remedy {
   --card-bg: #0a4a9e;
 }
 
@@ -268,6 +338,16 @@
 .project-card--cv-master,
 .project-card--cv-master:hover {
   border-color: var(--accent-deep);
+}
+
+/* Open, the trace stops and the whole border lights up in the bright teal */
+.project-card--cv-master[data-open="true"],
+.project-card--cv-master[data-open="true"]:hover {
+  border-color: var(--accent);
+}
+
+.project-card--cv-master[data-open="true"] .card-trace {
+  display: none;
 }
 
 .project-card--cv-master .card-name {
@@ -340,4 +420,25 @@
 @keyframes card-trace {
   from { stroke-dashoffset: 0; }
   to   { stroke-dashoffset: -300; }
+}
+
+/* Status tags pick up each branded card's text color */
+.project-card--seyona .card-status {
+  color: var(--ink-muted);
+}
+
+.project-card--remedy .card-status {
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.project-card--cv-master .card-status {
+  color: var(--muted);
+  border-radius: 5px;
+}
+
+/* Remedy's icon is the same blue as its card; a soft shadow that follows the
+   icon's own shape lifts it off the background */
+.project-card--remedy .card-logo {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
 }
