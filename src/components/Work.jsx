@@ -40,7 +40,7 @@ const projects = [
     link: null,
   },
   {
-    name: "cv-master",
+    name: "CV Master",
     theme: "cv-master",
     description:
       "AI-engine that analyzes job descriptions based on the users skills. Builds resumes from user-written repository of skills, education and professional experience",
