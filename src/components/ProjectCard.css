@@ -1,6 +1,7 @@
 /* Cards keep their look whichever site theme is on; dark mode only warms and
-   dims their backgrounds a touch so they don't glare. Plain cards use the
-   light site palette. */
+   dims their backgrounds a touch so they don't glare. That's dropped while a
+   project theme is active, since project themes ignore light/dark. Plain
+   cards use the light site palette. */
 .project-card {
   --card-surface:    #ffffff;
   --card-border:     #c8b4aa;
@@ -18,7 +19,7 @@
   transition: border-color 0.2s ease;
 }
 
-[data-theme="dark"] .project-card {
+[data-theme="dark"]:not([data-project]) .project-card {
   --card-surface: #f3eee8;
 }
 
@@ -165,7 +166,7 @@
   border-radius: 12px;
 }
 
-[data-theme="dark"] .project-card--seyona {
+[data-theme="dark"]:not([data-project]) .project-card--seyona {
   --card-bg: #f5ecef;
 }
 
@@ -218,7 +219,7 @@
   color: #ffffff;
 }
 
-[data-theme="dark"] .project-card--remedy {
+[data-theme="dark"]:not([data-project]) .project-card--remedy {
   --card-bg: #0a4a9e;
 }
 

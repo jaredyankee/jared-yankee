@@ -44,7 +44,10 @@
 
    The page behind the cards is a counterweight to the panel: a light tint of
    the project color next to a dark panel, a deeper one next to a light panel,
-   so neither side of the layout outweighs the other. */
+   so neither side of the layout outweighs the other.
+
+   A project theme looks the same whether the site is in light or dark mode,
+   so every project sets all of these itself rather than inheriting any. */
 :root {
   --page-bg:      var(--color-bg);
   --panel-bg:     transparent;
@@ -63,6 +66,7 @@
 }
 
 [data-project="seyona"] {
+  --page-bg:      #f5efea;
   --panel-bg:     #fdf0f4;
   --panel-text:   #1a1118;
   --panel-name:   #d4638a;
@@ -71,11 +75,6 @@
   --panel-rule:   #e0cdd4;
   --rail-color:   #e08aa8;
   --browser-bar:  #fdf0f4;
-}
-
-[data-theme="dark"][data-project="seyona"] {
-  --panel-bg:     #f5ecef;
-  --browser-bar:  #f5ecef;
 }
 
 [data-project="remedy"] {
@@ -89,13 +88,6 @@
   --browser-bar:  #007aff;
 }
 
-[data-theme="dark"][data-project="remedy"] {
-  --page-bg:      #0b1626;
-  --panel-bg:     #0a4a9e;
-  --rail-color:   #0a4a9e;
-  --browser-bar:  #0a4a9e;
-}
-
 [data-project="cv-master"] {
   --page-bg:      #e7eeec;
   --panel-bg:     #17181b;
@@ -107,10 +99,3 @@
   --browser-bar:  #17181b;
 }
 
-/* In dark mode the page stays the site's near-black and the panel lifts to
-   CV Master's card grey, so it still reads as a change next to the page. */
-[data-theme="dark"][data-project="cv-master"] {
-  --page-bg:      var(--color-bg);
-  --panel-bg:     #1c1d21;
-  --browser-bar:  #1c1d21;
-}
