@@ -88,7 +88,7 @@ function ProjectCard({ name, description, stack, link, linkLabel, theme, shots =
             <div className="card-details-inner">
               {shots.map((shot) => (
                 <figure key={shot.src} className="card-shot">
-                  <img src={shot.src} alt={`${name}: ${shot.title}`} loading="lazy" width="2497" height="1329" />
+                  <img src={shot.src} alt={`${name}: ${shot.title}`} width="2497" height="1329" />
                   <figcaption>
                     <h3 className="card-shot-title">{shot.title}</h3>
                     <p className="card-shot-blurb">{shot.blurb}</p>

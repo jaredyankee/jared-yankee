@@ -70,7 +70,9 @@ function App() {
         </aside>
         {/* Divider between me and the projects; carries the open project's
             border style and backs the themed panel */}
-        <div className="rail" aria-hidden="true" />
+        <div className="rail" aria-hidden="true">
+          <span className="rail-line" />
+        </div>
         <main className="content">
           <Work openProject={openProject} onToggle={toggleProject} onVisibleChange={setProjectVisible} />
         </main>

@@ -41,7 +41,21 @@
   position: sticky;
   top: 0;
   height: 100vh;
+}
+
+/* The line itself: 2px at its middle, clipped to a long thin diamond so it
+   narrows to a point at each end, and faded out toward the ends. */
+.rail-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  overflow: hidden;
   background: var(--rail-color);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
   transition: background-color 0.4s ease;
 }
 
@@ -58,7 +72,7 @@
 }
 
 /* CV Master's loading trace, run down the divider */
-.rail::after {
+.rail-line::after {
   content: '';
   position: absolute;
   left: 0;
@@ -69,7 +83,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  [data-project="cv-master"] .rail::after {
+  [data-project="cv-master"] .rail-line::after {
     animation: rail-trace 2s linear infinite;
   }
 }
