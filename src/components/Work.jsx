@@ -19,6 +19,7 @@ const projects = [
   {
     name: 'Seyona AI',
     theme: 'seyona',
+    status: 'live',
     description:
       'An AI-powered AEO/SEO platform. Scrapes page data to build a living brand profile, generates per-page trend plans, and produces FAQ schema blocks that render directly on client sites. Aligns generated content with existing brand voice automatically.',
     stack: ['Vite', 'React', 'Netlify Serverless', 'Stack Auth', 'Perplexity API', 'Gemini API', 'Anthropic API'],
@@ -34,6 +35,7 @@ const projects = [
   {
     name: 'Remedy',
     theme: 'remedy',
+    status: 'testflight',
     description:
       "Medical companion using AI to track progress of conditions. Uses dynamic form generation to collect, analyze, and store information related to user's conditions",
     stack: ['React Native', 'SQLite', 'Expo Go', 'OpenAI API'],
@@ -42,6 +44,7 @@ const projects = [
   {
     name: "CV Master",
     theme: "cv-master",
+    status: 'whitelisted',
     description:
       "AI-engine that analyzes job descriptions based on the users skills. Builds resumes from user-written repository of skills, education and professional experience",
     stack: ["React", "Netlify", "PostgreSQL", "OpenAI", "Anthropic", "Gemini"],

@@ -1,7 +1,38 @@
 import { useEffect, useId, useRef } from 'react'
 import './ProjectCard.css'
 
-function ProjectCard({ name, description, stack, link, linkLabel, theme, shots = [], open, onToggle, onVisibleChange }) {
+// Preset project states. A project sets `status` to one of these keys; the
+// title is the hover explanation for anyone who doesn't know the term.
+const STATUSES = {
+  live: { label: 'Live', title: 'Up and running in production' },
+  testflight: { label: 'TestFlight', title: 'Beta build available through Apple TestFlight' },
+  whitelisted: { label: 'Whitelisted', title: 'Invite only: open to approved users' },
+}
+
+function StatusIcon({ status }) {
+  if (status === 'live') return <span className="status-dot" />
+  if (status === 'testflight') {
+    // Flask: a build being tested
+    return (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3" />
+        <path d="M7 15h10" />
+      </svg>
+    )
+  }
+  if (status === 'whitelisted') {
+    // Lock: access is restricted
+    return (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="11" width="14" height="10" rx="2" />
+        <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+      </svg>
+    )
+  }
+  return null
+}
+
+function ProjectCard({ name, description, stack, link, linkLabel, theme, status, shots = [], open, onToggle, onVisibleChange }) {
   const cardRef = useRef(null)
   const traceRef = useRef(null)
   const detailsId = useId()
@@ -65,7 +96,15 @@ function ProjectCard({ name, description, stack, link, linkLabel, theme, shots =
           <rect ref={traceRef} pathLength="300" />
         </svg>
       )}
-      <h2 className="card-name">{name}</h2>
+      <div className="card-header">
+        <h2 className="card-name">{name}</h2>
+        {STATUSES[status] && (
+          <span className="card-status" title={STATUSES[status].title}>
+            <span aria-hidden="true"><StatusIcon status={status} /></span>
+            {STATUSES[status].label}
+          </span>
+        )}
+      </div>
       <p className="card-description">{description}</p>
       <p className="card-stack">{stack.join(', ')}</p>
       {link && (
