@@ -1,6 +1,15 @@
+/* Cards keep the same look whichever site theme is on, only the profile
+   side follows the toggle. Plain cards use the light site palette. */
 .project-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  --card-surface:    #ffffff;
+  --card-border:     #c8b4aa;
+  --card-text:       #1a2018;
+  --card-text-muted: #3c5048;
+  --card-link:       #c41830;
+  --card-link-hover: #e01428;
+
+  background: var(--card-surface);
+  border: 1px solid var(--card-border);
   border-radius: 2px;
   padding: 2rem;
   display: flex;
@@ -9,26 +18,26 @@
 }
 
 .project-card:hover {
-  border-color: var(--color-text-muted);
+  border-color: var(--card-text-muted);
 }
 
 .card-name {
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--card-text);
   margin-bottom: 0.75rem;
 }
 
 .card-description {
   font-size: 0.975rem;
-  color: var(--color-text-muted);
+  color: var(--card-text-muted);
   line-height: 1.75;
   margin-bottom: 1rem;
 }
 
 .card-stack {
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  color: var(--card-text-muted);
   margin-bottom: 1rem;
 }
 
@@ -38,14 +47,14 @@
 }
 
 .card-link {
-  color: var(--color-primary);
+  color: var(--card-link);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color 0.2s ease;
 }
 
 .card-link:hover {
-  color: var(--color-highlight);
+  color: var(--card-link-hover);
 }
 
 .card-toggle {
@@ -56,7 +65,7 @@
   border: none;
   font: inherit;
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: var(--card-text-muted);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -65,7 +74,7 @@
 }
 
 .card-toggle:hover {
-  color: var(--color-text);
+  color: var(--card-text);
 }
 
 .card-toggle-icon {
@@ -108,7 +117,7 @@
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--card-border);
 }
 
 .card-shot figcaption {
@@ -118,13 +127,13 @@
 .card-shot-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--card-text);
   margin-bottom: 0.35rem;
 }
 
 .card-shot-blurb {
   font-size: 0.925rem;
-  color: var(--color-text-muted);
+  color: var(--card-text-muted);
   line-height: 1.7;
 }
 
@@ -135,8 +144,7 @@
 }
 
 /* Branded cards take on the look of the app they show, using each app's own
-   palette. Dark mode swaps in a dark take on the same palette so the card
-   doesn't glare off the page. */
+   palette. */
 
 .project-card--seyona {
   --card-bg:     #fdf8f9;
@@ -152,14 +160,6 @@
   border-radius: 12px;
 }
 
-[data-theme="dark"] .project-card--seyona {
-  --card-bg:     #1e1519;
-  --card-border: #3d2a33;
-  --accent:      #e8a0b8;
-  --accent-hover:#fce8ef;
-  --ink:         #f5e9ee;
-  --ink-muted:   #bba5af;
-}
 
 .project-card--seyona:hover {
   border-color: var(--accent);
@@ -198,8 +198,7 @@
 }
 
 /* Remedy is an Expo app, so it renders in the platform font: thin white type
-   on a lot of iOS blue. Dark mode uses a deeper blue so it isn't a floodlight
-   on the near-black page. */
+   on a lot of iOS blue. */
 .project-card--remedy {
   --card-bg: #007aff;
 
@@ -210,9 +209,6 @@
   color: #ffffff;
 }
 
-[data-theme="dark"] .project-card--remedy {
-  --card-bg: #0a4a9e;
-}
 
 .project-card--remedy:hover {
   border-color: #ffffff;
@@ -300,7 +296,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .card-trace rect {
-    animation: card-trace 1.8s ease-in-out infinite;
+    animation: card-trace 1.8s linear infinite;
   }
 }
 
