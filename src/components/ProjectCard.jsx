@@ -3,6 +3,12 @@ import './ProjectCard.css'
 function ProjectCard({ name, description, stack, link, linkLabel, theme, shots = [] }) {
   return (
     <article className={theme ? `project-card project-card--${theme}` : 'project-card'}>
+      {theme === 'cv-master' && (
+        // Teal segment that runs around the border, CV Master's loading effect
+        <svg className="card-trace" aria-hidden="true">
+          <rect pathLength="300" />
+        </svg>
+      )}
       <h2 className="card-name">{name}</h2>
       <p className="card-description">{description}</p>
       <p className="card-stack">{stack.join(', ')}</p>

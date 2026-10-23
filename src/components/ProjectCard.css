@@ -180,3 +180,91 @@
   font-weight: 300;
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* CV Master: minimal and etched. Hairline borders, 5px radius, no shadows,
+   system sans, teal used sparingly. */
+.project-card--cv-master {
+  --card-bg:  #ffffff;
+  --border:   #dcd8d1;
+  --heading:  #14161a;
+  --body:     #3e454f;
+  --muted:    #757c87;
+  --accent:   #0b6f63;
+
+  position: relative;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--card-bg);
+  border-color: var(--border);
+  border-radius: 5px;
+}
+
+[data-theme="dark"] .project-card--cv-master {
+  --card-bg:  #1c1d21;
+  --border:   #2f3137;
+  --heading:  #f6f6f5;
+  --body:     #cbccd2;
+  --muted:    #91939b;
+  --accent:   #3fdcc7;
+}
+
+/* The border stays put on hover, the traveling segment is the hover state */
+.project-card--cv-master:hover {
+  border-color: var(--border);
+}
+
+.project-card--cv-master .card-name {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.project-card--cv-master .card-description {
+  color: var(--body);
+}
+
+.project-card--cv-master .card-stack {
+  color: var(--muted);
+}
+
+.project-card--cv-master .card-link {
+  color: var(--accent);
+}
+
+/* The loading effect: a teal dash a third of the perimeter long (pathLength
+   300, dash 100) traced over the 1px border. Runs while hovered. */
+.card-trace {
+  position: absolute;
+  inset: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.card-trace rect {
+  x: 0.5px;
+  y: 0.5px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+  rx: 5px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1px;
+  stroke-dasharray: 100 200;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.project-card--cv-master:hover .card-trace rect {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-card--cv-master:hover .card-trace rect {
+    animation: card-trace 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes card-trace {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -300; }
+}

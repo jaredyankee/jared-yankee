@@ -1,10 +1,6 @@
 import ProjectCard from './ProjectCard'
 import './Work.css'
 
-// Placeholder copy until the real write-up for each agent exists
-const LOREM =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
-
 const seyona = {
   "brand_analysis": "Seyona implements a brand-analysis agent to track brand voice and company offerings. This keeps generated content consistent with what already exists, and allows for cross-referencing other relevant pages in FAQ content.",
   "page_trends": "Seyona interfaces with Perplexity's API to retrieve live-search trends relevant to each page. It categorizes its results, gives each a confidence score based on certainy and SEO opportunity, and returns citations related to its results.",
@@ -38,7 +34,7 @@ const projects = [
   },
   {
     name: "cv-master",
-    //theme: "cv-master",
+    theme: "cv-master",
     description:
       "AI-engine that analyzes job descriptions based on the users skills. Builds resumes from user-written repository of skills, education and professional experience",
     stack: ["React", "Netlify", "PostgreSQL", "OpenAI", "Anthropic", "Gemini"]
