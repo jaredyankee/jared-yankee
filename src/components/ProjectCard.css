@@ -182,14 +182,15 @@
 }
 
 /* CV Master: minimal and etched. Hairline borders, 5px radius, no shadows,
-   system sans, teal used sparingly. */
+   system sans, teal used sparingly. Always uses the app's dark palette, in
+   light mode too. */
 .project-card--cv-master {
-  --card-bg:  #ffffff;
-  --border:   #dcd8d1;
-  --heading:  #14161a;
-  --body:     #3e454f;
-  --muted:    #757c87;
-  --accent:   #0b6f63;
+  --card-bg:  #1c1d21;
+  --border:   #2f3137;
+  --heading:  #f6f6f5;
+  --body:     #cbccd2;
+  --muted:    #91939b;
+  --accent:   #3fdcc7;
 
   position: relative;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -198,16 +199,7 @@
   border-radius: 5px;
 }
 
-[data-theme="dark"] .project-card--cv-master {
-  --card-bg:  #1c1d21;
-  --border:   #2f3137;
-  --heading:  #f6f6f5;
-  --body:     #cbccd2;
-  --muted:    #91939b;
-  --accent:   #3fdcc7;
-}
-
-/* The border stays put on hover, the traveling segment is the hover state */
+/* The border stays put on hover, the traveling segment is enough motion */
 .project-card--cv-master:hover {
   border-color: var(--border);
 }
@@ -230,7 +222,7 @@
 }
 
 /* The loading effect: a teal dash a third of the perimeter long (pathLength
-   300, dash 100) traced over the 1px border. Runs while hovered. */
+   300, dash 100) that runs around the 1px border on a loop. */
 .card-trace {
   position: absolute;
   inset: -1px;
@@ -250,16 +242,10 @@
   stroke: var(--accent);
   stroke-width: 1px;
   stroke-dasharray: 100 200;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.project-card--cv-master:hover .card-trace rect {
-  opacity: 1;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .project-card--cv-master:hover .card-trace rect {
+  .card-trace rect {
     animation: card-trace 1.8s ease-in-out infinite;
   }
 }
