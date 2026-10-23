@@ -5,12 +5,16 @@
   margin: 1em auto;
   padding: 0 3rem;
   display: grid;
-  grid-template-columns: minmax(300px, 380px) 1fr;
-  column-gap: 7rem;
+  grid-template-columns: minmax(300px, 380px) 1px 1fr;
+  column-gap: 3.5rem;
+  isolation: isolate;
 }
 
+/* z-index keeps the profile above the rail's panel; sticky elements paint in
+   their own layer, so DOM order alone would put the panel on top. */
 .sidebar {
   position: sticky;
+  z-index: 1;
   top: 0;
   height: 100vh;
   overflow-y: auto;
@@ -28,6 +32,50 @@
 
 .content {
   padding: 3rem 0 6rem;
+}
+
+/* The divider. Sticky so it always spans the viewport. Its ::before is the
+   themed panel behind the sidebar, reaching from the rail to the left edge of
+   the screen; it's transparent until a project is active. */
+.rail {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--rail-color);
+  transition: background-color 0.4s ease;
+}
+
+.rail::before {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  bottom: -2rem;
+  right: 0;
+  width: 100vw;
+  background: var(--panel-bg);
+  z-index: -1;
+  transition: background-color 0.4s ease;
+}
+
+/* CV Master's loading trace, run down the divider */
+.rail::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 33%;
+  top: -33%;
+  background: var(--rail-segment, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-project="cv-master"] .rail::after {
+    animation: rail-trace 2s linear infinite;
+  }
+}
+
+@keyframes rail-trace {
+  to { top: 100%; }
 }
 
 /* Proximity, not mandatory: it only settles a card into place when you stop
@@ -48,6 +96,10 @@ html {
 
   .sidebar {
     display: contents;
+  }
+
+  .rail {
+    display: none;
   }
 
   .sidebar .hero {

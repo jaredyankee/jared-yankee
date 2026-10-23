@@ -15,10 +15,6 @@ const cv_master = {
   "listings": "CVMaster uses Perplexity to fetch listings it thinks you are qualified for. These are largely from Greenhouse and other job boards. Using a Claude in Chrome session to collect listings from job boards works just as well.",
 };
 
-// Placeholder copy until the real write-up for each screen exists
-const LOREM =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
-
 const projects = [
   {
     name: 'Seyona AI',
@@ -74,12 +70,20 @@ const projects = [
   },
 ]
 
-function Work() {
+// One project is open at a time. While the open one is on screen its theme
+// is reported up so the rest of the page can take it on.
+function Work({ openProject, onToggle, onVisibleChange }) {
   // see ProjectCard.jsx, renders each of the above as a card
   return (
     <section className="work">
       {projects.map((project) => (
-        <ProjectCard key={project.name} {...project} />
+        <ProjectCard
+          key={project.name}
+          {...project}
+          open={openProject === project.name}
+          onToggle={() => onToggle(project.name)}
+          onVisibleChange={(visible) => onVisibleChange(project.name, project.theme, visible)}
+        />
       ))}
     </section>
   )

@@ -36,3 +36,64 @@
   --color-card-border-hover: #484f58;
   --color-divider-line:      rgba(139, 148, 158, 0.18);
 }
+
+/* Project themes. While an open project is on screen, <html> carries
+   data-project and the left panel, the divider and the phone's browser bar
+   take on that project's look. With nothing active, the panel is the plain
+   page and the divider is a thin dark line. */
+:root {
+  --panel-bg:     transparent;
+  --panel-text:   var(--color-text);
+  --panel-muted:  var(--color-text-muted);
+  --panel-accent: var(--color-highlight);
+  --panel-rule:   var(--color-divider-line);
+  --rail-color:   #1a2018;
+  --browser-bar:  #f5efea;
+}
+
+[data-theme="dark"] {
+  --rail-color:   #6e7681;
+  --browser-bar:  #0d1117;
+}
+
+[data-project="seyona"] {
+  --panel-bg:     #fdf0f4;
+  --panel-text:   #1a1118;
+  --panel-muted:  #6b5560;
+  --panel-accent: #d4638a;
+  --panel-rule:   #e0cdd4;
+  --rail-color:   #e08aa8;
+  --browser-bar:  #fdf0f4;
+}
+
+[data-theme="dark"][data-project="seyona"] {
+  --panel-bg:     #f5ecef;
+  --browser-bar:  #f5ecef;
+}
+
+[data-project="remedy"] {
+  --panel-bg:     #007aff;
+  --panel-text:   #ffffff;
+  --panel-muted:  rgba(255, 255, 255, 0.82);
+  --panel-accent: #ffffff;
+  --panel-rule:   rgba(255, 255, 255, 0.35);
+  --rail-color:   #007aff;
+  --browser-bar:  #007aff;
+}
+
+[data-theme="dark"][data-project="remedy"] {
+  --panel-bg:     #0a4a9e;
+  --rail-color:   #0a4a9e;
+  --browser-bar:  #0a4a9e;
+}
+
+[data-project="cv-master"] {
+  --panel-bg:     #17181b;
+  --panel-text:   #f6f6f5;
+  --panel-muted:  #cbccd2;
+  --panel-accent: #3fdcc7;
+  --panel-rule:   #2f3137;
+  --rail-color:   #0b6f63;
+  --rail-segment: #3fdcc7;
+  --browser-bar:  #17181b;
+}

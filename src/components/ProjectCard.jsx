@@ -1,18 +1,48 @@
-import { useId, useRef, useState } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import './ProjectCard.css'
 
-function ProjectCard({ name, description, stack, link, linkLabel, theme, shots = [] }) {
-  const [open, setOpen] = useState(false)
+function ProjectCard({ name, description, stack, link, linkLabel, theme, shots = [], open, onToggle, onVisibleChange }) {
   const cardRef = useRef(null)
   const traceRef = useRef(null)
   const detailsId = useId()
 
-  const toggle = () => {
-    // Collapsing a long card can leave you scrolled past it, so bring its top back
-    if (open && cardRef.current.getBoundingClientRect().top < 0) {
-      cardRef.current.scrollIntoView({ block: 'start' })
+  const onVisibleRef = useRef(onVisibleChange)
+  useEffect(() => {
+    onVisibleRef.current = onVisibleChange
+  })
+
+  // While open, report whether the card crosses the middle of the viewport.
+  // That's what decides if its theme is applied to the page.
+  useEffect(() => {
+    if (!open) return
+    const observer = new IntersectionObserver(
+      ([entry]) => onVisibleRef.current(entry.isIntersecting),
+      { rootMargin: '-45% 0px -45% 0px' },
+    )
+    observer.observe(cardRef.current)
+    return () => {
+      observer.disconnect()
+      onVisibleRef.current(false)
     }
-    setOpen(o => !o)
+  }, [open])
+
+  const toggle = () => {
+    const card = cardRef.current
+    // Collapsing a long card can leave you scrolled past it, so bring its top back
+    if (open && card.getBoundingClientRect().top < 0) {
+      card.scrollIntoView({ block: 'start' })
+    }
+    // Opening this one closes any card above it, which shifts this one up.
+    // Once that collapse has played out, make sure it's still in view.
+    if (!open) {
+      setTimeout(() => {
+        const { top } = card.getBoundingClientRect()
+        if (top < 0 || top > window.innerHeight * 0.6) {
+          card.scrollIntoView({ block: 'start', behavior: 'smooth' })
+        }
+      }, 400)
+    }
+    onToggle()
   }
 
   // Reverse the border trace on hover. Flipping the playback rate keeps the

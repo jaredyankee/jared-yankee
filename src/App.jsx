@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Hero from './components/Hero'
 import Work from './components/Work'
 import About from './components/About'
@@ -19,6 +19,28 @@ function App() {
   }, [theme])
 
   const toggle = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
+
+  // One project open at a time; its theme is applied while it's on screen
+  const [openProject, setOpenProject] = useState(null)
+  const [visibleProject, setVisibleProject] = useState(null)
+  const activeProject = visibleProject?.name === openProject ? visibleProject.theme : null
+
+  const toggleProject = (name) => setOpenProject(o => o === name ? null : name)
+  const setProjectVisible = useCallback((name, projectTheme, visible) => {
+    setVisibleProject(v => visible ? { name, theme: projectTheme } : v?.name === name ? null : v)
+  }, [])
+
+  useEffect(() => {
+    const root = document.documentElement
+    if (activeProject) {
+      root.setAttribute('data-project', activeProject)
+    } else {
+      root.removeAttribute('data-project')
+    }
+    // Phones tint the browser bar to match
+    const meta = document.querySelector('meta[name="theme-color"]')
+    meta.setAttribute('content', getComputedStyle(root).getPropertyValue('--browser-bar').trim())
+  }, [activeProject, theme])
 
   return (
     <>
@@ -46,8 +68,11 @@ function App() {
           <Hero />
           <About />
         </aside>
+        {/* Divider between me and the projects; carries the open project's
+            border style and backs the themed panel */}
+        <div className="rail" aria-hidden="true" />
         <main className="content">
-          <Work />
+          <Work openProject={openProject} onToggle={toggleProject} onVisibleChange={setProjectVisible} />
         </main>
       </div>
     </>

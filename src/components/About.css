@@ -6,6 +6,7 @@
 
 .about p {
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: var(--panel-muted);
   line-height: 1.7;
+  transition: color 0.4s ease;
 }
