@@ -48,6 +48,58 @@
   color: var(--color-highlight);
 }
 
+.card-toggle {
+  align-self: flex-start;
+  margin-top: 1.25rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s ease;
+}
+
+.card-toggle:hover {
+  color: var(--color-text);
+}
+
+.card-toggle-icon {
+  font-size: 0.75em;
+  transition: transform 0.25s ease;
+}
+
+.card-toggle[aria-expanded="true"] .card-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Animates to the content's natural height: grid rows can transition from
+   0fr to 1fr where height: auto can't. */
+.card-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.card-details[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.card-details-inner {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-details,
+  .card-toggle-icon {
+    transition: none;
+  }
+}
+
 .card-shot {
   margin-top: 2.5rem;
 }
@@ -130,11 +182,13 @@
   color: var(--ink);
 }
 
-.project-card--seyona .card-link {
+.project-card--seyona .card-link,
+.project-card--seyona .card-toggle {
   color: var(--accent);
 }
 
-.project-card--seyona .card-link:hover {
+.project-card--seyona .card-link:hover,
+.project-card--seyona .card-toggle:hover {
   color: var(--accent-hover);
 }
 
