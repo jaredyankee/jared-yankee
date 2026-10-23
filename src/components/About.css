@@ -1,20 +1,11 @@
 .about {
-  padding: 4rem 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 3.5rem;
-  row-gap: 1.75rem;
-  animation: fadeUp 0.7s ease-out 0.35s both;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
 }
 
 .about p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
-  line-height: 1.85;
-}
-
-@media (max-width: 640px) {
-  .about {
-    grid-template-columns: 1fr;
-  }
+  line-height: 1.7;
 }

@@ -1,166 +1,46 @@
-/* Featured (Seyona spotlight). Colors come from the --color-featured-* tokens
-   in theme.css so the card follows light/dark like everything else.
-
-   The selector is doubled up on purpose. The base .project-card rules live
-   further down this file, and at equal specificity the later rule wins, so a
-   plain .project-card--featured lost its background to .project-card. That is
-   what made this card render on the dark surface with a near-black heading. */
-
-.project-card.project-card--featured {
-  background: var(--color-featured-bg);
-  border: 1px solid var(--color-featured-border);
-  border-left: 3px solid var(--color-featured-accent);
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 2px 12px var(--color-featured-shadow);
-  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-}
-
-.project-card.project-card--featured:hover {
-  border-color: var(--color-featured-accent);
-  box-shadow: 0 6px 24px var(--color-featured-shadow-hover);
-  transform: translateY(-2px);
-}
-
-.featured-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.6rem;
-}
-
-.featured-eyebrow {
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--color-featured-accent);
-}
-
-.featured-name {
-  font-family: 'Nunito', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-featured-heading);
-  line-height: 1.15;
-  margin-bottom: 0.75rem;
-}
-
-.project-card--featured .card-description {
-  color: var(--color-featured-body);
-  margin-bottom: 1.25rem;
-}
-
-.project-card--featured .card-stack {
-  margin-bottom: 1.25rem;
-}
-
-.featured-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-featured-accent);
-  transition: color 0.2s ease;
-}
-
-.featured-link:hover {
-  color: var(--color-featured-accent-hover);
-}
-
-.project-card--featured .card-status {
-  color: var(--color-featured-status);
-}
-
-.project-card--featured .stack-tag {
-  color: var(--color-featured-accent);
-  border-color: var(--color-featured-pill-border);
-  background: var(--color-featured-pill-bg);
-}
-
-@media (max-width: 600px) {
-  .featured-name {
-    font-size: 1.6rem;
-  }
-}
-
-/* Standard cards */
-
 .project-card {
   background: var(--color-surface);
-  border: 1px solid var(--color-card-border);
-  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
   padding: 2rem;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   display: flex;
   flex-direction: column;
+  transition: border-color 0.2s ease;
 }
 
 .project-card:hover {
-  border-color: var(--color-card-border-hover);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 1px 4px var(--color-card-glow);
-  transform: translateY(-2px);
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
+  border-color: var(--color-text-muted);
 }
 
 .card-name {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   font-weight: 600;
   color: var(--color-text);
-}
-
-.card-status {
-  font-size: 0.65rem;
-  color: var(--color-text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-  flex-shrink: 0;
+  margin-bottom: 0.75rem;
 }
 
 .card-description {
   font-size: 0.975rem;
   color: var(--color-text-muted);
   line-height: 1.75;
-  margin-bottom: 1.25rem;
-  flex: 1;
+  margin-bottom: 1rem;
 }
 
 .card-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 1.25rem;
-}
-
-.stack-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--color-primary);
-  border: 1px solid var(--color-pill-border);
-  border-radius: 99px;
-  padding: 0.25rem 0.8rem;
-  background: var(--color-pill-bg);
-}
-
-.card-footer {
-  display: flex;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
 }
 
 .card-link {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+
+.card-link {
   color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color 0.2s ease;
 }
 
@@ -168,7 +48,135 @@
   color: var(--color-highlight);
 }
 
-.card-link-muted {
-  font-size: 0.8rem;
-  color: var(--color-text-faint);
+.card-shot {
+  margin-top: 2.5rem;
+}
+
+.card-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+}
+
+.card-shot figcaption {
+  margin-top: 1rem;
+}
+
+.card-shot-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+
+.card-shot-blurb {
+  font-size: 0.925rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .project-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Branded cards take on the look of the app they show, using each app's own
+   palette. Dark mode swaps in a dark take on the same palette so the card
+   doesn't glare off the page. */
+
+.project-card--seyona {
+  --card-bg:     #fdf8f9;
+  --card-border: #e0cdd4;
+  --accent:      #d4638a;
+  --accent-hover:#b84d72;
+  --ink:         #1a1118;
+  --ink-muted:   #6b5560;
+
+  font-family: 'Nunito', sans-serif;
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  border-radius: 12px;
+}
+
+[data-theme="dark"] .project-card--seyona {
+  --card-bg:     #1e1519;
+  --card-border: #3d2a33;
+  --accent:      #e8a0b8;
+  --accent-hover:#fce8ef;
+  --ink:         #f5e9ee;
+  --ink-muted:   #bba5af;
+}
+
+.project-card--seyona:hover {
+  border-color: var(--accent);
+}
+
+.project-card--seyona .card-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.project-card--seyona .card-description,
+.project-card--seyona .card-stack,
+.project-card--seyona .card-shot-blurb {
+  color: var(--ink-muted);
+}
+
+.project-card--seyona .card-shot-title {
+  color: var(--ink);
+}
+
+.project-card--seyona .card-link {
+  color: var(--accent);
+}
+
+.project-card--seyona .card-link:hover {
+  color: var(--accent-hover);
+}
+
+.project-card--seyona .card-shot img {
+  border-color: var(--card-border);
+  border-radius: 8px;
+}
+
+/* Remedy is an Expo app, so it renders in the platform font: thin white type
+   on a lot of iOS blue. Dark mode uses a deeper blue so it isn't a floodlight
+   on the near-black page. */
+.project-card--remedy {
+  --card-bg: #007aff;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--card-bg);
+  border-color: var(--card-bg);
+  border-radius: 16px;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .project-card--remedy {
+  --card-bg: #0a4a9e;
+}
+
+.project-card--remedy:hover {
+  border-color: #ffffff;
+}
+
+.project-card--remedy .card-name {
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.project-card--remedy .card-description {
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.project-card--remedy .card-stack {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
 }
