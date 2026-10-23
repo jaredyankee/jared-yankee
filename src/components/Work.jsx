@@ -50,11 +50,12 @@ const projects = [
       "AI-engine that analyzes job descriptions based on the users skills. Builds resumes from user-written repository of skills, education and professional experience",
     stack: ["React", "Netlify", "PostgreSQL", "OpenAI", "Anthropic", "Gemini"],
     shots: [
-      { src: '/assets/cv-master/cv-master-main.png', title: 'Dashboard', blurb: LOREM },
-      { src: '/assets/cv-master/cv-master-fetched-listings.png', title: 'Fetched listings', blurb: LOREM },
-      { src: '/assets/cv-master/cv-master-job-application.png', title: 'Job application', blurb: LOREM },
-      { src: '/assets/cv-master/cv-master-flyout.png', title: 'Profile', blurb: LOREM },
-      { src: '/assets/cv-master/cv-master-revisions.png', title: 'Profile revisions', blurb: LOREM },
+      { src: '/assets/cv-master/cv-master-profile.png', title: 'Profile', blurb: cv_master.profile },
+      { src: '/assets/cv-master/cv-master-revisions.png', title: 'Profile revisions', blurb: cv_master.revisions },
+      { src: '/assets/cv-master/cv-master-job-application.png', title: "Sample Application", blurb: cv_master.application },
+      { src: '/assets/cv-master/cv-master-applications.png', title: 'Job Applications', blurb: cv_master.applications },
+      { src: '/assets/cv-master/cv-master-fetched-listings.png', title: 'Listings', blurb: cv_master.listings },
+
     ],
   },
   {
