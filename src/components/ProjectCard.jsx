@@ -4,6 +4,7 @@ import './ProjectCard.css'
 function ProjectCard({ name, description, stack, link, linkLabel, theme, shots = [] }) {
   const [open, setOpen] = useState(false)
   const cardRef = useRef(null)
+  const traceRef = useRef(null)
   const detailsId = useId()
 
   const toggle = () => {
@@ -14,12 +15,23 @@ function ProjectCard({ name, description, stack, link, linkLabel, theme, shots =
     setOpen(o => !o)
   }
 
+  // Reverse the border trace on hover. Flipping the playback rate keeps the
+  // segment where it is, a CSS direction swap would make it jump.
+  const setTraceDirection = (rate) => {
+    traceRef.current?.getAnimations().forEach(a => a.updatePlaybackRate(rate))
+  }
+
   return (
-    <article ref={cardRef} className={theme ? `project-card project-card--${theme}` : 'project-card'}>
+    <article
+      ref={cardRef}
+      className={theme ? `project-card project-card--${theme}` : 'project-card'}
+      onMouseEnter={theme === 'cv-master' ? () => setTraceDirection(-1) : undefined}
+      onMouseLeave={theme === 'cv-master' ? () => setTraceDirection(1) : undefined}
+    >
       {theme === 'cv-master' && (
         // Teal segment that runs around the border, CV Master's loading effect
         <svg className="card-trace" aria-hidden="true">
-          <rect pathLength="300" />
+          <rect ref={traceRef} pathLength="300" />
         </svg>
       )}
       <h2 className="card-name">{name}</h2>

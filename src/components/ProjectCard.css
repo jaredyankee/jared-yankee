@@ -254,6 +254,7 @@
   --body:     #cbccd2;
   --muted:    #91939b;
   --accent:   #3fdcc7;
+  --accent-deep: #0b6f63;
 
   position: relative;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -262,9 +263,11 @@
   border-radius: 5px;
 }
 
-/* The border stays put on hover, the traveling segment is enough motion */
+/* The border is the deep teal all the way round, the bright teal segment
+   travels over it. It stays put on hover, the segment is enough motion. */
+.project-card--cv-master,
 .project-card--cv-master:hover {
-  border-color: var(--border);
+  border-color: var(--accent-deep);
 }
 
 .project-card--cv-master .card-name {
@@ -309,7 +312,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .card-trace rect {
-    animation: card-trace 1.8s linear infinite;
+    animation: card-trace 2s linear infinite;
   }
 }
 
