@@ -1,5 +1,6 @@
-/* Cards keep the same look whichever site theme is on, only the profile
-   side follows the toggle. Plain cards use the light site palette. */
+/* Cards keep their look whichever site theme is on; dark mode only warms and
+   dims their backgrounds a touch so they don't glare. Plain cards use the
+   light site palette. */
 .project-card {
   --card-surface:    #ffffff;
   --card-border:     #c8b4aa;
@@ -15,6 +16,10 @@
   display: flex;
   flex-direction: column;
   transition: border-color 0.2s ease;
+}
+
+[data-theme="dark"] .project-card {
+  --card-surface: #f3eee8;
 }
 
 .project-card:hover {
@@ -160,6 +165,10 @@
   border-radius: 12px;
 }
 
+[data-theme="dark"] .project-card--seyona {
+  --card-bg: #f5ecef;
+}
+
 
 .project-card--seyona:hover {
   border-color: var(--accent);
@@ -198,7 +207,7 @@
 }
 
 /* Remedy is an Expo app, so it renders in the platform font: thin white type
-   on a lot of iOS blue. */
+   on a lot of iOS blue, a deeper blue in dark mode. */
 .project-card--remedy {
   --card-bg: #007aff;
 
@@ -207,6 +216,10 @@
   border-color: var(--card-bg);
   border-radius: 16px;
   color: #ffffff;
+}
+
+[data-theme="dark"] .project-card--remedy {
+  --card-bg: #0a4a9e;
 }
 
 
