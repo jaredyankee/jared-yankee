@@ -107,15 +107,10 @@
   --browser-bar:  #17181b;
 }
 
-/* In dark mode CV Master's dark panel would barely differ from the dark page,
-   so the panel flips to the app's light palette instead, the same way
-   Seyona's stays light. */
+/* In dark mode the page stays the site's near-black and the panel lifts to
+   CV Master's card grey, so it still reads as a change next to the page. */
 [data-theme="dark"][data-project="cv-master"] {
-  --page-bg:      #17181b;
-  --panel-bg:     #f3f1ed;
-  --panel-text:   #14161a;
-  --panel-muted:  #3e454f;
-  --panel-accent: #0b6f63;
-  --panel-rule:   #dcd8d1;
-  --browser-bar:  #f3f1ed;
+  --page-bg:      var(--color-bg);
+  --panel-bg:     #1c1d21;
+  --browser-bar:  #1c1d21;
 }
