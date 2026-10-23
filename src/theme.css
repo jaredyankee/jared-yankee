@@ -42,9 +42,7 @@
    the phone's browser bar take on that project's look. With nothing active,
    the panel is the plain page and the divider is a thin dark line.
 
-   The page behind the cards is a counterweight to the panel: a light tint of
-   the project color next to a dark panel, a deeper one next to a light panel,
-   so neither side of the layout outweighs the other.
+   The page behind the cards is set per project to sit well with the panel.
 
    A project theme looks the same whether the site is in light or dark mode,
    so every project sets all of these itself rather than inheriting any. */
@@ -89,7 +87,7 @@
 }
 
 [data-project="cv-master"] {
-  --page-bg:      #d6ece7;
+  --page-bg:      #202226;
   --panel-bg:     #17181b;
   --panel-text:   #f6f6f5;
   --panel-muted:  #cbccd2;
