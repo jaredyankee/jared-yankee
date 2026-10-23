@@ -25,10 +25,10 @@ const projects = [
     link: 'https://seyona.ai',
     linkLabel: 'seyona.ai',
     shots: [
-      { src: '/assets/seyona/seyona-dashboard-brand-analysis.png', title: 'Brand analysis', blurb: seyona.brand_analysis },
-      { src: '/assets/seyona/seyona-dashboard-page-trends.png', title: 'Page trends', blurb: seyona.page_trends },
-      { src: '/assets/seyona/seyona-dashboard-live-content.png', title: 'Live content', blurb: seyona.live_content },
-      { src: '/assets/seyona/seyona-live-faqs.png', title: 'FAQs on a live site', blurb: seyona.live_on_site },
+      { src: '/assets/seyona/seyona-dashboard-brand-analysis.webp', title: 'Brand analysis', blurb: seyona.brand_analysis },
+      { src: '/assets/seyona/seyona-dashboard-page-trends.webp', title: 'Page trends', blurb: seyona.page_trends },
+      { src: '/assets/seyona/seyona-dashboard-live-content.webp', title: 'Live content', blurb: seyona.live_content },
+      { src: '/assets/seyona/seyona-live-faqs.webp', title: 'FAQs on a live site', blurb: seyona.live_on_site },
     ],
   },
   {
@@ -46,11 +46,11 @@ const projects = [
       "AI-engine that analyzes job descriptions based on the users skills. Builds resumes from user-written repository of skills, education and professional experience",
     stack: ["React", "Netlify", "PostgreSQL", "OpenAI", "Anthropic", "Gemini"],
     shots: [
-      { src: '/assets/cv-master/cv-master-profile.png', title: 'Profile', blurb: cv_master.profile },
-      { src: '/assets/cv-master/cv-master-revisions.png', title: 'Profile revisions', blurb: cv_master.revisions },
-      { src: '/assets/cv-master/cv-master-job-application.png', title: "Sample Application", blurb: cv_master.application },
-      { src: '/assets/cv-master/cv-master-applications.png', title: 'Job Applications', blurb: cv_master.applications },
-      { src: '/assets/cv-master/cv-master-fetched-listings.png', title: 'Listings', blurb: cv_master.listings },
+      { src: '/assets/cv-master/cv-master-profile.webp', title: 'Profile', blurb: cv_master.profile },
+      { src: '/assets/cv-master/cv-master-revisions.webp', title: 'Profile revisions', blurb: cv_master.revisions },
+      { src: '/assets/cv-master/cv-master-job-application.webp', title: "Sample Application", blurb: cv_master.application },
+      { src: '/assets/cv-master/cv-master-applications.webp', title: 'Job Applications', blurb: cv_master.applications },
+      { src: '/assets/cv-master/cv-master-fetched-listings.webp', title: 'Listings', blurb: cv_master.listings },
 
     ],
   },

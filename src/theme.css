@@ -38,12 +38,18 @@
 }
 
 /* Project themes. While an open project is on screen, <html> carries
-   data-project and the left panel, the divider and the phone's browser bar
-   take on that project's look. With nothing active, the panel is the plain
-   page and the divider is a thin dark line. */
+   data-project and the left panel, the divider, the page behind the cards and
+   the phone's browser bar take on that project's look. With nothing active,
+   the panel is the plain page and the divider is a thin dark line.
+
+   The page behind the cards is a counterweight to the panel: a light tint of
+   the project color next to a dark panel, a deeper one next to a light panel,
+   so neither side of the layout outweighs the other. */
 :root {
+  --page-bg:      var(--color-bg);
   --panel-bg:     transparent;
   --panel-text:   var(--color-text);
+  --panel-name:   var(--panel-text);
   --panel-muted:  var(--color-text-muted);
   --panel-accent: var(--color-highlight);
   --panel-rule:   var(--color-divider-line);
@@ -59,6 +65,7 @@
 [data-project="seyona"] {
   --panel-bg:     #fdf0f4;
   --panel-text:   #1a1118;
+  --panel-name:   #d4638a;
   --panel-muted:  #6b5560;
   --panel-accent: #d4638a;
   --panel-rule:   #e0cdd4;
@@ -72,6 +79,7 @@
 }
 
 [data-project="remedy"] {
+  --page-bg:      #e8f1fc;
   --panel-bg:     #007aff;
   --panel-text:   #ffffff;
   --panel-muted:  rgba(255, 255, 255, 0.82);
@@ -82,12 +90,14 @@
 }
 
 [data-theme="dark"][data-project="remedy"] {
+  --page-bg:      #0b1626;
   --panel-bg:     #0a4a9e;
   --rail-color:   #0a4a9e;
   --browser-bar:  #0a4a9e;
 }
 
 [data-project="cv-master"] {
+  --page-bg:      #e7eeec;
   --panel-bg:     #17181b;
   --panel-text:   #f6f6f5;
   --panel-muted:  #cbccd2;
@@ -96,4 +106,8 @@
   --rail-color:   #0b6f63;
   --rail-segment: #3fdcc7;
   --browser-bar:  #17181b;
+}
+
+[data-theme="dark"][data-project="cv-master"] {
+  --page-bg:      #202226;
 }
