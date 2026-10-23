@@ -8,6 +8,10 @@ const seyona = {
   "live_on_site": "Seyona's widget can be deployed directly to a live site through a single script tag. Marking a page as active will have it analyzed and content will be generated for approval. You can opt to have it render as an accordion or a slider (slick-slider), and style the widget within the Seyona dashboard."
 }
 
+// Placeholder copy until the real write-up for each screen exists
+const LOREM =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+
 const projects = [
   {
     name: 'Seyona AI',
@@ -37,7 +41,14 @@ const projects = [
     theme: "cv-master",
     description:
       "AI-engine that analyzes job descriptions based on the users skills. Builds resumes from user-written repository of skills, education and professional experience",
-    stack: ["React", "Netlify", "PostgreSQL", "OpenAI", "Anthropic", "Gemini"]
+    stack: ["React", "Netlify", "PostgreSQL", "OpenAI", "Anthropic", "Gemini"],
+    shots: [
+      { src: '/assets/cv-master/cv-master-main.png', title: 'Dashboard', blurb: LOREM },
+      { src: '/assets/cv-master/cv-master-fetched-listings.png', title: 'Fetched listings', blurb: LOREM },
+      { src: '/assets/cv-master/cv-master-job-application.png', title: 'Job application', blurb: LOREM },
+      { src: '/assets/cv-master/cv-master-flyout.png', title: 'Profile', blurb: LOREM },
+      { src: '/assets/cv-master/cv-master-revisions.png', title: 'Profile revisions', blurb: LOREM },
+    ],
   },
   {
     name: 'API Dashboard Template',

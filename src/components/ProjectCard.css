@@ -287,6 +287,27 @@
   color: var(--accent);
 }
 
+.project-card--cv-master .card-toggle {
+  color: var(--muted);
+}
+
+.project-card--cv-master .card-toggle:hover {
+  color: var(--accent);
+}
+
+.project-card--cv-master .card-shot-title {
+  color: var(--heading);
+}
+
+.project-card--cv-master .card-shot-blurb {
+  color: var(--body);
+}
+
+.project-card--cv-master .card-shot img {
+  border-color: var(--border);
+  border-radius: 5px;
+}
+
 /* The loading effect: a teal dash a third of the perimeter long (pathLength
    300, dash 100) that runs around the 1px border on a loop. */
 .card-trace {
