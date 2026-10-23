@@ -35,6 +35,19 @@
   margin-bottom: 0.75rem;
 }
 
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.card-logo {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
 .card-name {
   font-size: 1.35rem;
   font-weight: 600;
@@ -422,4 +435,10 @@
 .project-card--cv-master .card-status {
   color: var(--muted);
   border-radius: 5px;
+}
+
+/* Remedy's icon is the same blue as its card; a soft shadow that follows the
+   icon's own shape lifts it off the background */
+.project-card--remedy .card-logo {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
 }

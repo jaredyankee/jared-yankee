@@ -6,7 +6,7 @@ import './ProjectCard.css'
 const STATUSES = {
   live: { label: 'Live', title: 'Up and running in production' },
   testflight: { label: 'TestFlight', title: 'Beta build available through Apple TestFlight' },
-  whitelisted: { label: 'Whitelisted', title: 'Invite only: open to approved users' },
+  invite: { label: 'Invite only', title: 'Open to approved users only' },
 }
 
 function StatusIcon({ status }) {
@@ -20,7 +20,7 @@ function StatusIcon({ status }) {
       </svg>
     )
   }
-  if (status === 'whitelisted') {
+  if (status === 'invite') {
     // Lock: access is restricted
     return (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -32,7 +32,7 @@ function StatusIcon({ status }) {
   return null
 }
 
-function ProjectCard({ name, description, stack, link, linkLabel, theme, status, shots = [], open, onToggle, onVisibleChange }) {
+function ProjectCard({ name, description, stack, link, linkLabel, theme, status, logo, shots = [], open, onToggle, onVisibleChange }) {
   const cardRef = useRef(null)
   const traceRef = useRef(null)
   const detailsId = useId()
@@ -97,7 +97,10 @@ function ProjectCard({ name, description, stack, link, linkLabel, theme, status,
         </svg>
       )}
       <div className="card-header">
-        <h2 className="card-name">{name}</h2>
+        <div className="card-title">
+          {logo && <img className="card-logo" src={logo} alt="" width="40" height="40" />}
+          <h2 className="card-name">{name}</h2>
+        </div>
         {STATUSES[status] && (
           <span className="card-status" title={STATUSES[status].title}>
             <span aria-hidden="true"><StatusIcon status={status} /></span>
