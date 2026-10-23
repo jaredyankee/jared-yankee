@@ -55,6 +55,7 @@ function ProjectCard({ name, description, stack, link, linkLabel, theme, shots =
     <article
       ref={cardRef}
       className={theme ? `project-card project-card--${theme}` : 'project-card'}
+      data-open={open}
       onMouseEnter={theme === 'cv-master' ? () => setTraceDirection(-1) : undefined}
       onMouseLeave={theme === 'cv-master' ? () => setTraceDirection(1) : undefined}
     >

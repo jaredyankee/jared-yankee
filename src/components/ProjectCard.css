@@ -270,6 +270,16 @@
   border-color: var(--accent-deep);
 }
 
+/* Open, the trace stops and the whole border lights up in the bright teal */
+.project-card--cv-master[data-open="true"],
+.project-card--cv-master[data-open="true"]:hover {
+  border-color: var(--accent);
+}
+
+.project-card--cv-master[data-open="true"] .card-trace {
+  display: none;
+}
+
 .project-card--cv-master .card-name {
   font-weight: 600;
   color: var(--heading);
