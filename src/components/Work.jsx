@@ -15,46 +15,47 @@ const cv_master = {
   "listings": "CVMaster uses Perplexity to fetch listings it thinks you are qualified for. These are largely from Greenhouse and other job boards. Using a Claude in Chrome session to collect listings from job boards works just as well.",
 };
 
-// Placeholder copy until the real write-up for each screen exists
-const LOREM =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
-
 const projects = [
   {
     name: 'Seyona AI',
     theme: 'seyona',
+    status: 'live',
+    logo: '/assets/logos/seyona.png',
     description:
       'An AI-powered AEO/SEO platform. Scrapes page data to build a living brand profile, generates per-page trend plans, and produces FAQ schema blocks that render directly on client sites. Aligns generated content with existing brand voice automatically.',
     stack: ['Vite', 'React', 'Netlify Serverless', 'Stack Auth', 'Perplexity API', 'Gemini API', 'Anthropic API'],
     link: 'https://seyona.ai',
     linkLabel: 'seyona.ai',
     shots: [
-      { src: '/assets/seyona/seyona-dashboard-brand-analysis.png', title: 'Brand analysis', blurb: seyona.brand_analysis },
-      { src: '/assets/seyona/seyona-dashboard-page-trends.png', title: 'Page trends', blurb: seyona.page_trends },
-      { src: '/assets/seyona/seyona-dashboard-live-content.png', title: 'Live content', blurb: seyona.live_content },
-      { src: '/assets/seyona/seyona-live-faqs.png', title: 'FAQs on a live site', blurb: seyona.live_on_site },
+      { src: '/assets/seyona/seyona-dashboard-brand-analysis.webp', title: 'Brand analysis', blurb: seyona.brand_analysis },
+      { src: '/assets/seyona/seyona-dashboard-page-trends.webp', title: 'Page trends', blurb: seyona.page_trends },
+      { src: '/assets/seyona/seyona-dashboard-live-content.webp', title: 'Live content', blurb: seyona.live_content },
+      { src: '/assets/seyona/seyona-live-faqs.webp', title: 'FAQs on a live site', blurb: seyona.live_on_site },
     ],
   },
   {
     name: 'Remedy',
     theme: 'remedy',
+    status: 'testflight',
+    logo: '/assets/logos/remedy.png',
     description:
       "Medical companion using AI to track progress of conditions. Uses dynamic form generation to collect, analyze, and store information related to user's conditions",
     stack: ['React Native', 'SQLite', 'Expo Go', 'OpenAI API'],
     link: null,
   },
   {
-    name: "cv-master",
+    name: "CV Master",
     theme: "cv-master",
+    status: 'invite',
     description:
       "AI-engine that analyzes job descriptions based on the users skills. Builds resumes from user-written repository of skills, education and professional experience",
     stack: ["React", "Netlify", "PostgreSQL", "OpenAI", "Anthropic", "Gemini"],
     shots: [
-      { src: '/assets/cv-master/cv-master-profile.png', title: 'Profile', blurb: cv_master.profile },
-      { src: '/assets/cv-master/cv-master-revisions.png', title: 'Profile revisions', blurb: cv_master.revisions },
-      { src: '/assets/cv-master/cv-master-job-application.png', title: "Sample Application", blurb: cv_master.application },
-      { src: '/assets/cv-master/cv-master-applications.png', title: 'Job Applications', blurb: cv_master.applications },
-      { src: '/assets/cv-master/cv-master-fetched-listings.png', title: 'Listings', blurb: cv_master.listings },
+      { src: '/assets/cv-master/cv-master-profile.webp', title: 'Profile', blurb: cv_master.profile },
+      { src: '/assets/cv-master/cv-master-revisions.webp', title: 'Profile revisions', blurb: cv_master.revisions },
+      { src: '/assets/cv-master/cv-master-job-application.webp', title: "Sample Application", blurb: cv_master.application },
+      { src: '/assets/cv-master/cv-master-applications.webp', title: 'Job Applications', blurb: cv_master.applications },
+      { src: '/assets/cv-master/cv-master-fetched-listings.webp', title: 'Listings', blurb: cv_master.listings },
 
     ],
   },
@@ -74,12 +75,20 @@ const projects = [
   },
 ]
 
-function Work() {
+// One project is open at a time. While the open one is on screen its theme
+// is reported up so the rest of the page can take it on.
+function Work({ openProject, onToggle, onVisibleChange }) {
   // see ProjectCard.jsx, renders each of the above as a card
   return (
     <section className="work">
       {projects.map((project) => (
-        <ProjectCard key={project.name} {...project} />
+        <ProjectCard
+          key={project.name}
+          {...project}
+          open={openProject === project.name}
+          onToggle={() => onToggle(project.name)}
+          onVisibleChange={(visible) => onVisibleChange(project.name, project.theme, visible)}
+        />
       ))}
     </section>
   )

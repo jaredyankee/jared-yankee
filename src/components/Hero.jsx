@@ -5,7 +5,7 @@ function Hero() {
     <section className="hero">
       <img className="hero-avatar" src="/assets/profile/headshot-avatar.jpg" alt="Jared Yankee" width="168" height="168" />
       <h1 className="hero-name">Jared Yankee</h1>
-      <p className="hero-title">Software developer</p>
+      <p className="hero-title">Software Developer</p>
       <p className="hero-tagline">
         I build integrations nobody wants to touch: API pipelines, webhook automation, and data-syncs between any platforms with API documentation
       </p>
@@ -36,7 +36,6 @@ function Hero() {
           </svg>
         </a>
       </div>
-      <a href="mailto:hello@jaredyankee.com" className="hero-email">hello@jaredyankee.com</a>
     </section>
   )
 }

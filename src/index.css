@@ -5,19 +5,20 @@
 }
 
 body {
-  background-color: var(--color-bg);
+  background-color: var(--page-bg);
   background-image: radial-gradient(ellipse at 15% 0%, rgba(40, 112, 96, 0.1) 0%, transparent 50%);
   color: var(--color-text);
   font-family: 'DM Sans', sans-serif;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.3s ease;
 }
 
 /* Dark mode is a flat near-black canvas, the way GitHub's is. The light theme
    keeps its green wash above, dark drops it entirely. */
-[data-theme="dark"] body {
+[data-theme="dark"] body,
+[data-project] body {
   background-image: none;
 }
 

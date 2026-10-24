@@ -1,13 +1,22 @@
 .hero {
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--color-divider-line);
+  border-bottom: 1px solid var(--panel-rule);
+  transition: border-color 0.4s ease;
+}
+
+/* Everything on the profile side follows the active project's panel colors */
+.hero-name,
+.hero-title,
+.hero-tagline,
+.hero-avatar {
+  transition: color 0.4s ease, border-color 0.4s ease;
 }
 
 .hero-avatar {
   width: 256px;
   height: 256px;
   border-radius: 50%;
-  border: 1px solid var(--color-card-border);
+  border: 1px solid var(--panel-rule);
   object-fit: cover;
   display: block;
   margin: 0 auto 1.75rem;
@@ -16,7 +25,7 @@
 .hero-name {
   font-family: 'DM Serif Display', Georgia, serif;
   font-size: 2.75rem;
-  color: var(--color-text);
+  color: var(--panel-name);
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.01em;
@@ -27,13 +36,13 @@
   font-family: 'DM Serif Display', Georgia, serif;
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--color-text-muted);
+  color: var(--panel-muted);
   margin-bottom: 1.25rem;
 }
 
 .hero-tagline {
   font-size: 1rem;
-  color: var(--color-text);
+  color: var(--panel-text);
   line-height: 1.65;
   margin-bottom: 1.5rem;
 }
@@ -47,8 +56,8 @@
 
 .hero-links a,
 .hero-email {
-  color: var(--color-text-muted);
-  transition: color 0.2s ease;
+  color: var(--panel-muted);
+  transition: color 0.4s ease;
 }
 
 .hero-links a {
@@ -62,5 +71,5 @@
 
 .hero-links a:hover,
 .hero-email:hover {
-  color: var(--color-highlight);
+  color: var(--panel-accent);
 }

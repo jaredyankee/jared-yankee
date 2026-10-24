@@ -36,3 +36,64 @@
   --color-card-border-hover: #484f58;
   --color-divider-line:      rgba(139, 148, 158, 0.18);
 }
+
+/* Project themes. While an open project is on screen, <html> carries
+   data-project and the left panel, the divider, the page behind the cards and
+   the phone's browser bar take on that project's look. With nothing active,
+   the panel is the plain page and the divider is a thin dark line.
+
+   The page behind the cards is set per project to sit well with the panel.
+
+   A project theme looks the same whether the site is in light or dark mode,
+   so every project sets all of these itself rather than inheriting any. */
+:root {
+  --page-bg:      var(--color-bg);
+  --panel-bg:     transparent;
+  --panel-text:   var(--color-text);
+  --panel-name:   var(--panel-text);
+  --panel-muted:  var(--color-text-muted);
+  --panel-accent: var(--color-highlight);
+  --panel-rule:   var(--color-divider-line);
+  --rail-color:   rgba(26, 32, 24, 0.35);
+  --browser-bar:  #f5efea;
+}
+
+[data-theme="dark"] {
+  --rail-color:   rgba(139, 148, 158, 0.45);
+  --browser-bar:  #0d1117;
+}
+
+[data-project="seyona"] {
+  --page-bg:      #f5efea;
+  --panel-bg:     #fdf0f4;
+  --panel-text:   #1a1118;
+  --panel-name:   #d4638a;
+  --panel-muted:  #6b5560;
+  --panel-accent: #d4638a;
+  --panel-rule:   #e0cdd4;
+  --rail-color:   #e08aa8;
+  --browser-bar:  #fdf0f4;
+}
+
+[data-project="remedy"] {
+  --page-bg:      #ffffff;   /* Remedy's card white */
+  --panel-bg:     #007aff;
+  --panel-text:   #ffffff;
+  --panel-muted:  rgba(255, 255, 255, 0.82);
+  --panel-accent: #ffffff;
+  --panel-rule:   rgba(255, 255, 255, 0.35);
+  --rail-color:   #007aff;
+  --browser-bar:  #007aff;
+}
+
+[data-project="cv-master"] {
+  --page-bg:      #202226;
+  --panel-bg:     #17181b;
+  --panel-text:   #f6f6f5;
+  --panel-muted:  #cbccd2;
+  --panel-accent: #3fdcc7;
+  --panel-rule:   #2f3137;
+  --rail-color:   #3fdcc7;
+  --browser-bar:  #17181b;
+}
+
