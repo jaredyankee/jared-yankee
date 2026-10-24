@@ -1,10 +1,32 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Hero from './components/Hero'
 import Work from './components/Work'
 import About from './components/About'
 import './App.css'
 
+// Keeps the page as the only scroller. A sidebar taller than the window gets
+// a negative sticky top, so it scrolls up with the page only until its bottom
+// is in view and then holds still.
+function useStickySidebar() {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    const update = () => {
+      el.style.top = Math.min(0, window.innerHeight - el.offsetHeight) + 'px'
+    }
+    const observer = new ResizeObserver(update)
+    observer.observe(el)
+    window.addEventListener('resize', update)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', update)
+    }
+  }, [])
+  return ref
+}
+
 function App() {
+  const sidebarRef = useStickySidebar()
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light'
   })
@@ -64,7 +86,7 @@ function App() {
         )}
       </button>
       <div className="layout">
-        <aside className="sidebar">
+        <aside className="sidebar" ref={sidebarRef}>
           <Hero />
           <About />
         </aside>

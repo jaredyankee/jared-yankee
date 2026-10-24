@@ -2,7 +2,7 @@
    projects scroll past on the right. Below 960px it all stacks. */
 .layout {
   max-width: 92rem;
-  margin: 1em auto;
+  margin: 0 auto;
   padding: 0 3rem;
   display: grid;
   grid-template-columns: minmax(300px, 380px) 1px 1fr;
@@ -10,24 +10,21 @@
   isolation: isolate;
 }
 
-/* z-index keeps the profile above the rail's panel; sticky elements paint in
+/* The page is the only scroller; the sidebar never scrolls on its own. If
+   it's taller than the screen, App sets a negative top so it rides up just
+   far enough to show its bottom, then stays put (see useStickySidebar).
+   z-index keeps the profile above the rail's panel; sticky elements paint in
    their own layer, so DOM order alone would put the panel on top. */
 .sidebar {
   position: sticky;
   z-index: 1;
   top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: none;
+  align-self: start;
+  min-height: 100vh;
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-/* Still scrolls on short screens, just without a visible bar */
-.sidebar::-webkit-scrollbar {
-  display: none;
 }
 
 .content {
