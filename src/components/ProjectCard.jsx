@@ -9,6 +9,13 @@ const STATUSES = {
   invite: { label: 'Invite only', title: 'Open to approved users only' },
 }
 
+// The address is only put together on click so it never sits in the page
+// source for scrapers to pick up.
+function openEmail(subject) {
+  const address = ['hello', 'jaredyankee.com'].join('@')
+  window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject)}`
+}
+
 function StatusIcon({ status }) {
   if (status === 'live') return <span className="status-dot" />
   if (status === 'testflight') {
@@ -32,7 +39,7 @@ function StatusIcon({ status }) {
   return null
 }
 
-function ProjectCard({ name, description, stack, link, linkLabel, theme, status, logo, shots = [], open, onToggle, onVisibleChange }) {
+function ProjectCard({ id, name, description, stack, link, linkLabel, theme, status, logo, contact, shots = [], open, onToggle, onVisibleChange }) {
   const cardRef = useRef(null)
   const traceRef = useRef(null)
   const detailsId = useId()
@@ -84,6 +91,7 @@ function ProjectCard({ name, description, stack, link, linkLabel, theme, status,
 
   return (
     <article
+      id={id}
       ref={cardRef}
       className={theme ? `project-card project-card--${theme}` : 'project-card'}
       data-open={open}
@@ -114,6 +122,11 @@ function ProjectCard({ name, description, stack, link, linkLabel, theme, status,
         <a href={link} target="_blank" rel="noopener noreferrer" className="card-link">
           {linkLabel} &rarr;
         </a>
+      )}
+      {contact && (
+        <button type="button" className="card-contact" onClick={() => openEmail(contact.subject)}>
+          {contact.label} &rarr;
+        </button>
       )}
       {shots.length > 0 && (
         <>

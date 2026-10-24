@@ -8,5 +8,5 @@
    App.css). Height comes from content; screenshots will give them size. */
 .work .project-card {
   scroll-snap-align: start;
-  scroll-margin-top: 3rem;
+  scroll-margin-top: calc(var(--content-header-h) + 1rem);
 }

@@ -42,6 +42,13 @@ function App() {
 
   const toggle = () => setTheme(t => t === 'dark' ? 'light' : 'dark')
 
+  // Scroll to the freelance card and hand focus to its contact button
+  const goToFreelance = () => {
+    const card = document.getElementById('freelance')
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    card.querySelector('.card-contact')?.focus({ preventScroll: true })
+  }
+
   // One project open at a time; its theme is applied while it's on screen
   const [openProject, setOpenProject] = useState(null)
   const [visibleProject, setVisibleProject] = useState(null)
@@ -96,6 +103,13 @@ function App() {
           <span className="rail-line" />
         </div>
         <main className="content">
+          {/* Sticky bar over the projects: cards slide under it instead of
+              running off the top of the screen */}
+          <header className="content-header">
+            <button type="button" className="hire-cta" onClick={goToFreelance}>
+              Need a developer? <span aria-hidden="true">&rarr;</span>
+            </button>
+          </header>
           <Work openProject={openProject} onToggle={toggleProject} onVisibleChange={setProjectVisible} />
         </main>
       </div>

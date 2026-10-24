@@ -55,6 +55,7 @@
   --panel-accent: var(--color-highlight);
   --panel-rule:   var(--color-divider-line);
   --rail-color:   rgba(26, 32, 24, 0.35);
+  --cta-color:    var(--color-primary);
   --browser-bar:  #f5efea;
 }
 
@@ -72,6 +73,7 @@
   --panel-accent: #d4638a;
   --panel-rule:   #e0cdd4;
   --rail-color:   #e08aa8;
+  --cta-color:    #b84d72;
   --browser-bar:  #fdf0f4;
 }
 
@@ -83,6 +85,7 @@
   --panel-accent: #ffffff;
   --panel-rule:   rgba(255, 255, 255, 0.35);
   --rail-color:   #007aff;
+  --cta-color:    #007aff;
   --browser-bar:  #007aff;
 }
 
@@ -94,6 +97,7 @@
   --panel-accent: #3fdcc7;
   --panel-rule:   #2f3137;
   --rail-color:   #3fdcc7;
+  --cta-color:    #3fdcc7;
   --browser-bar:  #17181b;
 }
 

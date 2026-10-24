@@ -68,6 +68,9 @@ const projects = [
   },
   {
     name: 'Freelance Client Work',
+    id: 'freelance',
+    // Email for now; becomes a form once the Netlify/Neon functions are wired up
+    contact: { label: 'Email me about a project', subject: 'Project inquiry' },
     description:
       'Web applications and platform integrations for small businesses. Ecommerce, serverless functions, API work, custom functionality. Client work is not publicly linkable.',
     stack: ['Varies'],

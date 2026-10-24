@@ -128,6 +128,25 @@
   transition: color 0.2s ease;
 }
 
+.card-contact {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--card-surface);
+  background: var(--card-text);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card-contact:hover {
+  background: var(--card-link);
+}
+
 .card-link:hover {
   color: var(--card-link-hover);
 }
